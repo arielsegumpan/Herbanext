@@ -529,6 +529,34 @@ $border-color:#47a76e;
                 opacity: .9;
             }
         }
+        // products
+        section#jumbotron_product{
+            height: 60vh;
+            overflow: hidden;
+            img{
+                z-index: -1;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            .container{
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+
+        section#product_lists{
+            padding: 10rem 0;
+
+            .featured_products{
+                a{
+                    img{
+                        height: 250px;
+                    }
+                }
+            }
+        }
     }
 
     footer{

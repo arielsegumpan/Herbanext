@@ -2,8 +2,10 @@ $green: #0A7742;
 $trans: .3s ease;
 $nav-size: 15px;
 $gray: #6C6C6C;
+$graycustom: #F5F5F5;
 $black: #000000;
 $white: #ffffff;
+$warning: #ffc107;
 $green_light: #55FF70;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
@@ -30,12 +32,14 @@ $input-border-radius:  12px!default;
 $theme-colors:(
     "secondary" : $gray,
     "success": $green,
+    "warning": $warning,
 );
 
 $custom-colors: (
   "white": $white,
   "green": $green_light,
   "black": $black,
+  "gray" : $graycustom,
 );
 
 // Merge the maps

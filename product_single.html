@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Herbanext</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+  <body>
+    <!-- preloader -->
+    <div id="preload" class="position-relative fixed-top">
+      
+    </div>
+    <!-- end of preloader -->
+    <!-- nav -->
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg bg-body-transparent">
+            <div class="container">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/imgs/herbanext.png" alt="" width="auto" height="42">
+              </a>
+              <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="wrapper">
+                    <div class="icon_ni nav-icon-5">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div> 
+                </div>
+              </button>
+              <div class="collapse navbar-collapse ps-5 ps-lg-0 py-5 py-lg-0 rounded-md-auto rounded-4" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
+                  <li class="nav-item me-3">
+                    <a class="nav-link active" aria-current="page" href="products.html">Products</a>
+                  </li>
+                  <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Services <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Toll Manufacturing</a></li>
+                        <li><a class="dropdown-item" href="#">Laboratory</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Product Development</a></li>
+                        <li><a class="dropdown-item" href="#">Ingredient Development</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">Articles</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">Careers</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">contact</a>
+                  </li>
+                </ul>
+                
+                <d-flex class="d-flex flex-row gap-3 mt-4 mt-md-auto">
+                    <div class="shop">
+                        <a href="product.html" class="btn btn-success"><i class="bi bi-shop"></i></a>
+                    </div>
+                    <div class="login">
+                        <a href="#!" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-person-circle"></i></a>
+                    </div>
+                </d-flex>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Modal -->
+    <div class="modal fade " id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-5 p-3">
+                <div class="modal-header border-0">
+                <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-5">
+                    <div class="container">
+                        <div class="row mb-5 pb-2">
+                            <div class="col-10 mx-auto text-center">
+                                <a href="#!" class="text-decoration-none">
+                                    <img src="assets/imgs/herbanext.png" alt="" width="auto" height="50px">
+                                </a>
+                            </div>
+                        </div>
+                        <form action="#!">
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <label for="" class="mb-2 fw-bold">Username</label>
+                                    <input type="text" class="form-control form-control-lg" autofocus>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col">
+                                    <label for="" class="mb-2 fw-bold">Password</label>
+                                    <input type="password" class="form-control form-control-lg">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-success btn-lg w-100 py-3"><i class="bi bi-box-arrow-in-right me-3"></i>Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- end of nav -->
+    <!-- main -->
+    <main>
+        <!-- jumbotron -->
+        <section id="jumbotron_product" class="w-100 position-relative">
+            <img src="assets/imgs/essential-oil-peppermint-bottle-with-fresh-green-peppermint.jpg" alt="" class="object-fit-cover w-100 position-absolute top-0 left-0">
+            <div class="container position-absolute">
+                <div class="col-12 col-md-8 col-lg-6 me-auto text-center text-md-start my-auto">
+                    <h1 class="display-2 lora fw-bold text-primary">
+                       Our Products
+                    </h1>
+                    <h6 class="mt-4">
+                        Home / Products / loremp-ipsum
+                    </h6>
+                </div>
+            </div>
+        </section>  
+        <section id="product_lists">
+            <div class="container">
+                <div class="row">
+                    <!-- product content -->
+                    <div class="col-12 col-md-9">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <img src="assets/imgs/flat-lay-herbal-therapy-products_23-2149339723.jpg" alt="" class="img-fluid rounded-4">
+                                <div class="row row-cols-4 g-4 mt-3">
+                                    <img src="assets/imgs/flat-lay-herbal-therapy-products_23-2149339723.jpg" alt="" class="img-fluid">
+                                    <img src="assets/imgs/flat-lay-herbal-therapy-products_23-2149339723.jpg" alt="" class="img-fluid opacity-50">
+                                    <img src="assets/imgs/flat-lay-herbal-therapy-products_23-2149339723.jpg" alt="" class="img-fluid opacity-50">
+                                    <img src="assets/imgs/flat-lay-herbal-therapy-products_23-2149339723.jpg" alt="" class="img-fluid opacity-50">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h2 class="display-5 lora fw-bold">Lorem ipsum dolor sit</h2>
+                                <p class="lh-lg text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores commodi perferendis ipsa, reprehenderit omnis error illum vero enim, iste non ipsam. Quam corrupti consectetur ullam dignissimos rem, optio architecto quaerat?</p>
+                                <div id="product_btn" class="vstack gap-3 w-100 mt-5">
+                                    <a href="contact.html" type="button" class="btn btn-success py-3 fs-6"><i class="bi bi-info-circle me-2"></i>Inquire</a>
+                                    <a href="products.html" class="btn btn-outline-success py-3 fs-6"><i class="bi bi-eye me-2"></i>View other products</a>
+                                </div>
+                                <!-- category -->
+                                <div class="d-flex flex-wrap flex-row text-center g-5 text-md-start mt-5 align-items-start">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2 mb-2">Lorem, ipsum dolor</span>
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2 mb-2">Lorem, ipsum</span>
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2 mb-2">Lorem ipsum dolor sit</span>
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2 mb-2">Lorem, ipsum dolor</span>
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2 mb-2">Lorem, ipsum</span>
+                                </div>
+                            </div>
+                            <!-- reqview -->
+                            <div class="col-12 mt-5 pt-4">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link text-black active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link text-black" id="addinfo-tab" data-bs-toggle="tab" data-bs-target="#addinfo-tab-pane" type="button" role="tab" aria-controls="addinfo-tab-pane" aria-selected="false">Addition Information</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link text-black" id="review-tab" data-bs-toggle="tab" data-bs-target="#review-tab-pane" type="button" role="tab" aria-controls="review-tab-pane" aria-selected="false">Reviews (0)</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+                                        <div class="mt-5">
+                                            <h4 class="fw-bold text-success">Description</h4>
+                                            <p class="lh-lg text-secondary mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio totam, veniam quia quasi natus sint dolorem ipsam illo fuga velit, ea minima eaque quidem. Quisquam necessitatibus dolore voluptates ad velit!</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="addinfo-tab-pane" role="tabpanel" aria-labelledby="addinfo-tab" tabindex="0">
+                                        <div class="mt-5">
+                                            <h4 class="fw-bold text-success">Additional Information</h4>
+                                            <p class="lh-lg text-secondary mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio totam, veniam quia quasi natus sint dolorem ipsam illo fuga velit, ea minima eaque quidem. Quisquam necessitatibus dolore voluptates ad velit!</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
+                                        
+                                        <form action="#!">
+
+                                        </form>
+
+
+
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <!-- related product -->
+                            <div class="col-12 mt-5">
+                                <div class="container p-0">
+                                    <div class="row">
+                                        <div class="col mb-5">
+                                            <h3 class="fw-bold">
+                                                Related Products
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-md-4">
+                                            <div class="card border-0 bg-gray">
+                                                <img src="assets/imgs/natural-supplements-vitamin-organic-medicine-capsule-pills-herbal-from-herbs_103324-179.avif" alt="">
+                                                <div class="card-body py-5">
+                                                    <div class="product_title text-center">
+                                                        <h5 class="fw-bold lora">Lorem, ipsum dolor</h5>
+                                                    </div>
+                                                    <div class="Product_star">
+                                                       <div class="d-flex flex-wrap flex-row justify-content-between w-50 mx-auto text-warning">
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star fs-5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div id="product_btn" class="vstack gap-3 col-md-5 mx-auto w-100 mt-4 px-4">
+                                                        <a href="#!" class="btn btn-outline-success py-3 fs-6"><i class="bi bi-eye me-2"></i>View</a>
+                                                        <a href="contact.html" type="button" class="btn btn-success py-3 fs-6"><i class="bi bi-info-circle me-2"></i>Inquiry</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-4">
+                                            <div class="card border-0 bg-gray">
+                                                <img src="assets/imgs/natural-supplements-vitamin-organic-medicine-capsule-pills-herbal-from-herbs_103324-179.avif" alt="">
+                                                <div class="card-body py-5">
+                                                    <div class="product_title text-center">
+                                                        <h5 class="fw-bold lora">Lorem, ipsum dolor</h5>
+                                                    </div>
+                                                    <div class="Product_star">
+                                                       <div class="d-flex flex-wrap flex-row justify-content-between w-50 mx-auto text-warning">
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star fs-5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div id="product_btn" class="vstack gap-3 col-md-5 mx-auto w-100 mt-4 px-4">
+                                                        <a href="#!" class="btn btn-outline-success py-3 fs-6"><i class="bi bi-eye me-2"></i>View</a>
+                                                        <a href="#!" type="button" class="btn btn-success py-3 fs-6"><i class="bi bi-info-circle me-2"></i>Inquiry</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-4">
+                                            <div class="card border-0 bg-gray">
+                                                <img src="assets/imgs/natural-supplements-vitamin-organic-medicine-capsule-pills-herbal-from-herbs_103324-179.avif" alt="">
+                                                <div class="card-body py-5">
+                                                    <div class="product_title text-center">
+                                                        <h5 class="fw-bold lora">Lorem, ipsum dolor</h5>
+                                                    </div>
+                                                    <div class="Product_star">
+                                                       <div class="d-flex flex-wrap flex-row justify-content-between w-50 mx-auto text-warning">
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star-fill fs-5"></i>
+                                                            <i class="bi bi-star fs-5"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div id="product_btn" class="vstack gap-3 col-md-5 mx-auto w-100 mt-4 px-4">
+                                                        <a href="#!" class="btn btn-outline-success py-3 fs-6"><i class="bi bi-eye me-2"></i>View</a>
+                                                        <a href="#!" type="button" class="btn btn-success py-3 fs-6"><i class="bi bi-info-circle me-2"></i>Inquiry</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- aside -->
+                    <div class="col-12 col-md-3">
+                       <div id="search_aside" class="mb-5">
+                            <h4 class="fw-bold lora">Product Search</h4>
+                            <select class="form-select py-2 mt-4 mb-4" aria-label="Select category">
+                                <option selected disabled>Select category</option>
+                                <option value="Category 1">Category 1</option>
+                                <option value="Category 2">Category 2</option>
+                                <option value="Category 3">Category 3</option>
+                            </select>
+                            <input type="text" name="search" id="search" class="form-control px-3 py-2" placeholder="Type your product...">
+                       </div>
+                       <div id="product_categories" class="mb-5">
+                            <h4 class="fw-bold lora">Product Categories</h4>
+                            <div class="d-flex flex-wrap flex-row text-center g-5 text-md-start mt-4 align-items-start">
+                                <a href="#!" class="text-decoration-none  mb-2">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">Lorem, ipsum dolor</span>
+                                </a>
+                                <a href="#!" class="text-decoration-none  mb-2">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">Lorem, ipsum</span>
+                                </a>
+                                <a href="#!" class="text-decoration-none  mb-2">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">Lorem, ipsum dolor</span>
+                                </a>
+                                <a href="#!" class="text-decoration-none  mb-2">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">Lorem</span>
+                                </a>
+                                <a href="#!" class="text-decoration-none  mb-2">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">Lorem, ipsum</span>
+                                </a>
+                                <a href="#!" class="text-decoration-none  mb-2">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">Lorem, ipsum dolor</span>
+                                </a>
+                                <a href="#!" class="text-decoration-none  mb-2">
+                                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">Lorem, ipsum dolor</span>
+                                </a>
+                            </div>
+                       </div>
+                       <div id="recent_products">
+                        <h4 class="fw-bold lora">Recent Products</h4>
+                        <ul class="list-group list-group-flush mt-4">
+                            <li class="list-group-item bg-transparent mb-5 mb-md-4 pt-0 px-0 pb-4">
+                                <a href="#!" class="text-decoration-none">
+                                    <div class="d-flex flex-column flex-md-row justify-content-md-center justify-content-md-between align-items-center gap-2">
+                                        <div class="position-relative">
+                                            <span class="bg-success position-absolute z-1 text-white rouned-5">
+                                                1
+                                            </span>
+                                            <img src="assets/imgs/bottle-organic-oil-with-capsules-table.jpg" alt="" class="rounded-4 object-fit-cover">
+                                        </div>
+                                        <div>
+                                            <h6 class="lora fw-bold text-center text-md-start">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sunt?
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-group-item bg-transparent mb-5 mb-md-4 pt-0 px-0">
+                                <a href="#!" class="text-decoration-none">
+                                    <div class="d-flex flex-column flex-md-row justify-content-md-center justify-content-md-between align-items-center gap-2">
+                                        <div class="position-relative">
+                                            <span class="bg-success position-absolute z-1 text-white rouned-5">
+                                                2
+                                            </span>
+                                            <img src="assets/imgs/close-up-medicine-pills-table.jpg" alt="" class="rounded-4 object-fit-cover">
+                                        </div>
+                                        <div>
+                                            <h6 class="lora fw-bold text-center text-md-start">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sunt?
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-group-item bg-transparent mb-5 mb-md-4 pt-0 px-0">
+                                <a href="#!" class="text-decoration-none">
+                                    <div class="d-flex flex-column flex-md-row justify-content-md-center justify-content-md-between align-items-center gap-2">
+                                        <div class="position-relative">
+                                            <span class="bg-success position-absolute z-1 text-white rouned-5">
+                                                3
+                                            </span>
+                                            <img src="assets/imgs/elderly-person-holding-plant_1150-18574.jpg" alt="" class="rounded-4 object-fit-cover">
+                                        </div>
+                                        <div>
+                                            <h6 class="lora fw-bold text-center text-md-start">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sunt?
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-group-item bg-transparent mb-5 mb-md-4 pt-0 px-0">
+                                <a href="#!" class="text-decoration-none">
+                                    <div class="d-flex flex-column flex-md-row justify-content-md-center justify-content-md-between align-items-center gap-2">
+                                        <div class="position-relative">
+                                            <span class="bg-success position-absolute z-1 text-white rouned-5">
+                                                4
+                                            </span>
+                                            <img src="assets/imgs/herbanext-botanical-garden13..jpg" alt="" class="rounded-4 object-fit-cover">
+                                        </div>
+                                        <div>
+                                            <h6 class="lora fw-bold text-center text-md-start">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sunt?
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="list-group-item bg-transparent mb-5 mb-md-4 pt-0 px-0">
+                                <a href="#!" class="text-decoration-none">
+                                    <div class="d-flex flex-column flex-md-row justify-content-md-center justify-content-md-between align-items-center gap-2">
+                                        <div class="position-relative">
+                                            <span class="bg-success position-absolute z-1 text-white rouned-5">
+                                                5
+                                            </span>
+                                            <img src="assets/imgs/herbanext-dost-tawa-tawa-768x576.jpg" alt="" class="rounded-4 object-fit-cover">
+                                        </div>
+                                        <div>
+                                            <h6 class="lora fw-bold text-center text-md-start">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, sunt?
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-success w-100">
+        <div class="container">
+            <!-- main footer -->
+            <div class="row">
+                <div class="col-12 col-md-6 mb-5 mb-md-0">
+                    <h4 class="fw-bold lora text-white pe-md-5 mb-4 text-center text-md-start">Subscribe to our newsletter to
+                        stay in touch with the latest.</h5>
+                    <form action="#!">
+                        <div class="input-group mb-3 position-relative">
+                            <input type="text" class="form-control py-3 px-3 rounded-4 position-relative" placeholder="Your email" aria-label="Your email" aria-describedby="button-addon2">
+                            <button class="btn btn-black rounded-4 px-5 position-absolute h-100 top-50 end-0 translate-middle-y" type="button" id="button-addon2">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-md-3 mb-5 mb-md-0">
+                    <h4 class="fw-bold lora text-white pe-md-5 mb-4 text-center">Quicklinks</h5>
+                    <ul class="nav flex-column text-center text-md-start mx-auto ps-lg-5 ms-lg-5 text-black fw-bold">
+                        <li class="nav-item mb-4">
+                          <a class="text-black fw-bold fs-6 active" aria-current="page" href="#">Services</a>
+                        </li>
+                        <li class="nav-item mb-4">
+                            <a class="text-black fw-bold fs-6 active" aria-current="page" href="#">Products</a>
+                        </li>
+                        <li class="nav-item mb-4">
+                            <a class="text-black fw-bold fs-6 active" aria-current="page" href="#">About</a>
+                        </li>
+                        <li class="nav-item mb-4">
+                            <a class="text-black fw-bold fs-6 active" aria-current="page" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item mb-4">
+                            <a class="text-black fw-bold fs-6 active" aria-current="page" href="#">Career</a>
+                        </li>
+                      </ul>
+                </div>
+                <div class="col-12 col-md-3 text-center text-md-start">
+                    <div class="d-flex flex-column gap-5">
+                        <div class="col text-center text-md-start">
+                            <h4 class="lora fw-bold text-white mb-3">Call</h4>
+                            <div class="d-flex flex-row justify-content-center justify-content-md-start">
+                                <i class="bi bi-telephone-outbound text-black fs-5 me-3"></i>
+                                <a href="tel:+63347328106" class="text-decoration-none text-black fw-bold">+63 34 732 8106</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h4 class="lora fw-bold text-white mb-3">Email</h4>
+                            <div class="d-flex flex-wrap flex-row align-items-center justify-content-center justify-content-md-start">
+                                <i class="bi bi-link-45deg text-black fs-3 me-2"></i>
+                                <a href="mailto:info@herbanext.com" class="text-decoration-none text-black fw-bold">info@herbanext.com</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h4 class="lora fw-bold text-white mb-3">Follow Us</h4>
+                            <a href="#!" class="text-decoration-none">
+                                <i class="bi bi-facebook fs-3 text-black"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- bottom footer -->
+            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center gap-4 pb-4">
+                <p class="fw-bold text-black">&copy;2023 by Herbanext Laboratories, Inc.</p>
+                <a href="#!" class="text-decoration-none">
+                    <img src="assets/imgs/herbanext-inverted.png" alt="" width="auto" height="50">
+                </a>
+                <div class="d-flex flex-column flex-md-row gap-3 text-center text-lg-start">
+                    <a href="#!" class=" fw-bold text-black">Terms and Conditions</a>
+                    <a href="#!" class=" fw-bold text-black">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/js.js"></script>
+  </body>
+</html>

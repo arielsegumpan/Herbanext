@@ -6,6 +6,9 @@ $trans: .3s ease;
 $black: #1a1a1a;
 $border-color:#47a76e;
 *{
+    // preloader
+   
+    // preloader end
     header{
         transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out!important;
     }
@@ -87,6 +90,7 @@ $border-color:#47a76e;
 }
 @media (min-width: 375px) {
     header{
+        z-index: 999!important;
         div#navbarSupportedContent{
             background: $white;
         }

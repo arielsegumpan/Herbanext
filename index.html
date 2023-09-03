@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Herbanext</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+  <body>
+    <!-- preloader -->
+
+    <!-- end of preloader -->
+    <!-- nav -->
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg bg-body-transparent">
+            <div class="container">
+              <a class="navbar-brand" href="index.html">
+                <img src="assets/imgs/herbanext.png" alt="" width="auto" height="42">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
+                  <li class="nav-item me-3">
+                    <a class="nav-link active" aria-current="page" href="#">Products</a>
+                  </li>
+                  <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Services <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">Articles</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">Careers</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="#">contact</a>
+                  </li>
+                </ul>
+                
+                <d-flex class="d-flex flex-row gap-3">
+                    <div class="shop">
+                        <a href="product.html" class="btn btn-success"><i class="bi bi-shop"></i></a>
+                    </div>
+                    <div class="login">
+                        <a href="#!" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#loginModal"><i class="bi bi-person-circle"></i></a>
+                    </div>
+                </d-flex>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Modal -->
+    <div class="modal fade " id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-5 p-3">
+                <div class="modal-header border-0">
+                <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-5">
+                    <div class="container">
+                        <div class="row mb-5 pb-2">
+                            <div class="col-10 mx-auto text-center">
+                                <a href="#!" class="text-decoration-none">
+                                    <img src="assets/imgs/herbanext.png" alt="" width="auto" height="50px">
+                                </a>
+                            </div>
+                        </div>
+                        <form action="#!">
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <label for="" class="mb-2 fw-bold">Username</label>
+                                    <input type="text" class="form-control form-control-lg" autofocus>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col">
+                                    <label for="" class="mb-2 fw-bold">Password</label>
+                                    <input type="password" class="form-control form-control-lg">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-success btn-lg w-100 py-3"><i class="bi bi-box-arrow-in-right me-3"></i>Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- end of nav -->
+    <!-- main -->
+    <main>
+        <!-- jumbotron -->
+        <section id="jumbotron" class="w-100 position-relative">
+            <img src="assets/imgs/hand-holding-rosemary-fresh-plant-bottle-rosemary-oil.jpg" alt="" class="object-fit-cover w-100 position-absolute">
+        </section>
+        <!-- jumbortron content -->
+        <section id="jumb_content" class="position-relative">
+            <div class="container position-absolute">
+                <div class="col-12 col-md-6 me-auto">
+                    <h1 class="display-2 lora fw-bold text-primary">
+                        Healthier Solutions from Nature.
+                    </h1>
+                    <h4 class="mt-4 mb-5">
+                        We are experts in Philippine medicinal plants. 
+                    </h4>
+                    <div class="d-flex flex-row gap-3">
+                        <div class="products_btn">
+                            <a href="#!" class="btn btn-lg btn-success px-4 py-3">Products</a>
+                        </div>
+                        <div class="more_btn">
+                            <a href="#!" class="btn btn-lg btn-outline-success px-4 py-3"><i class="bi bi-arrow-right me-2 border-2"></i>More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- features -->
+        <section id="features" class="bg-success">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-9 mx-auto text-center mb-5">
+                        <div class="features_title text-white">
+                            <h1 class="lora fs-1 fw-bold text-white mb-5">Lorem, ipsum dolor</h1>
+                            <p class="lh-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim officia iure reiciendis, facilis accusantium illum iste. Necessitatibus nostrum esse hic!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 col-md-4 text-center border_col_feature">
+                        <div class="feature_icon mb-5">
+                            <img src="assets/imgs/icons-03.png" alt="">
+                        </div>
+                        <div class="feature_content px-4">
+                            <p class="lh-lg text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint nesciunt repellat iusto ullam, eum accusantium?</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 text-center border_col_feature">
+                        <div class="feature_icon mb-5">
+                            <img src="assets/imgs/icons-02.png" alt="">
+                        </div>
+                        <div class="feature_content px-4">
+                            <p class="lh-lg text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint nesciunt repellat iusto ullam, eum accusantium?</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <div class="feature_icon mb-5">
+                            <img src="assets/imgs/icons-01.png" alt="">
+                        </div>
+                        <div class="feature_content px-4">
+                            <p class="lh-lg text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint nesciunt repellat iusto ullam, eum accusantium?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- story -->
+        <section id="story">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-5 px-md-5 my-auto">
+                        <div class="story_title">
+                            <h1 class="lora display-2 fw-bold mb-5">Our <br/> Story</h1>
+                            <p class="lh-lg mb-5 text-secondary">Founded in 2001 as a small agricultural enterprise focused on the cultivation and processing of the medicinal mushroom Ganoderma lucidum...</p>
+                            <a href="#!" class="btn btn-outline-success border-3 px-5 py-3"><i class="bi bi-arrow-right me-2 border-2"></i>More</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7 pe-md-0">
+                        <div id="story" class="owl-theme owl-carousel position-relative">
+                            <div class="item">
+                                <img src="assets/imgs/2b1c03_c261fe0c9b0f414c8e45a0ee1d80dbee~mv2.webp" alt="" class="img-fluid">
+                            </div>
+                            <div class="item">
+                                <img src="assets/imgs/herbanext_group_photo.jpg" alt="" class="img-fluid">
+                            </div>
+                            <div class="item">
+                                <img src="assets/imgs/herbanext_group_photo.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- services -->
+        <section id="services" class="bg-success">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-8 mx-auto text-center mb-5">
+                        <div class="features_title text-white">
+                            <h1 class="lora fs-1 fw-bold text-white mb-5">Services</h1>
+                            <p class="lh-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim officia iure reiciendis, facilis accusantium illum iste. Necessitatibus nostrum esse hic!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex flex-row gap-4 text-white align-items-center lora">
+                            <div class="services_icon">
+                                <img src="assets/imgs/herbanext-dost-tawa-tawa-768x576.jpg" alt="" class="rounded-4 object-fit-cover" width="100" height="100">
+                            </div>
+                            <div class="services_content">
+                                <p class="fs-6 fw-bold">Lorem ipsum dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-row gap-4 text-white align-items-center lora">
+                            <div class="services_icon">
+                                <img src="assets/imgs/herbanext-dost-tawa-tawa-768x576.jpg" alt="" class="rounded-4 object-fit-cover" width="100" height="100">
+                            </div>
+                            <div class="services_content">
+                                <p class="fs-6 fw-bold">Lorem ipsum dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-row gap-4 text-white align-items-center lora">
+                            <div class="services_icon">
+                                <img src="assets/imgs/herbanext-dost-tawa-tawa-768x576.jpg" alt="" class="rounded-4 object-fit-cover" width="100" height="100">
+                            </div>
+                            <div class="services_content">
+                                <p class="fs-6 fw-bold">Lorem ipsum dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex flex-row gap-4 text-white align-items-center lora">
+                            <div class="services_icon">
+                                <img src="assets/imgs/herbanext-dost-tawa-tawa-768x576.jpg" alt="" class="rounded-4 object-fit-cover" width="100" height="100">
+                            </div>
+                            <div class="services_content">
+                                <p class="fs-6 fw-bold">Lorem ipsum dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5 pt-5 text-center">
+                    <div class="col-6 mx-auto">
+                        <a href="#!" class="btn btn-outline-white border-3 px-5 py-3"><i class="bi bi-arrow-right me-2 border-2"></i>More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/js.js"></script>
+  </body>
+</html>

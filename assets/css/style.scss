@@ -1,0 +1,116 @@
+$lora: 'Lora', serif;
+$white:#ffffff;
+$green: #0A7742;
+$gray: #DBDBDB;
+$trans: .3s ease;
+$border-color:#47a76e;
+*{
+    header{
+        transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out!important;
+    }
+    .dropdown-toggle::after {
+        display: none!important;
+        margin-left:0!important;
+        vertical-align: 0!important;
+        content: none!important;
+        border-top: 0!important;
+        border-right: 0!important;
+        border-bottom: 0!important;
+        border-left: 0!important;
+    }
+    .lora{
+        font-family: $lora;
+        color: $green;
+    }
+
+    .bg_nav_white {
+        background-color: white;
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    main{
+        // jumb
+        section#jumbotron{
+            img{
+                z-index: -1;
+                height: 100vh;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+        section#jumb_content{
+            height: 100vh;
+            .container{
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+        section#features{
+            padding: 10rem 0;
+            
+            .border_col_feature {
+                border-right: 2px solid $border_color;
+                margin: auto 0;
+            }
+            .border_col_feature:last-child() {
+                border-right: 0; 
+            }
+            .feature_icon{
+                img{
+                    width: auto;
+                    height: 90px;
+                }
+            }
+        }
+        section#story{
+            .owl-nav{
+                position: absolute;
+                bottom: 5rem;
+                left:-8%;
+                button span{
+                    border-radius: 10px;
+                    padding: 8px 30px;
+                    font-size: 2rem;
+                }
+                button.owl-prev span{
+                    background-color: $green;
+                    color: $white;
+                }
+                button.owl-next span{
+                    background-color: $gray;
+                    color: $green;
+
+                }
+            }
+        }
+        section#services{
+            padding: 10rem 0;
+        }
+    }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+
+}
+

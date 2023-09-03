@@ -2,6 +2,10 @@ $green: #0A7742;
 $trans: .3s ease;
 $nav-size: 15px;
 $gray: #6C6C6C;
+$black: #000000;
+$white: #ffffff;
+$green_light: #55FF70;
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Poppins:wght@300;400;600&display=swap');
 // Custom.scss
@@ -19,15 +23,19 @@ $dropdown-link-hover-color: $green;
 $dropdown-link-hover-bg: none!default;
 $nav-link-font-size: $nav-size!default;
 $dropdown-font-size:$nav-size!default;
-
-
+$btn-border-radius: 12px!default;
+$btn-border-radius-sm: 9px!default;
+$btn-border-radius-lg: 12px!default;
+$input-border-radius:  12px!default;
 $theme-colors:(
     "secondary" : $gray,
     "success": $green,
 );
 
 $custom-colors: (
-  "white": #ffffff,
+  "white": $white,
+  "green": $green_light,
+  "black": $black,
 );
 
 // Merge the maps

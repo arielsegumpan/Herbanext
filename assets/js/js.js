@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    //humberger
+    const icons = document.querySelectorAll('.icon_ni');
+    icons.forEach (icon => {  
+    icon.addEventListener('click', (event) => {
+        icon.classList.toggle("open");
+    });
+    });
+
     var $navbar = $('header.fixed-top');
     var stickyTop = $navbar.offset().top;
     var scrollTop = $(window).scrollTop();

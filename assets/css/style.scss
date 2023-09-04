@@ -228,7 +228,61 @@ $border-color:#47a76e;
                 opacity: .9;
             }
         }
+        // products page
+        section#jumbotron_product{
+            height: 60vh;
+            overflow: hidden;
+            img{
+                z-index: -1;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 60vh;
+            }
+            .container{
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
 
+        section#product_lists{
+            padding: 8rem 0;
+            .card{
+                img{
+                    object-fit: cover;
+                    height: 250px;
+                }
+            }
+            .featured_products{
+                a{
+                    
+                    img{
+                        height: 150px;
+                    }
+                }
+            }
+            #recent_products{
+                ul.list-group li a
+                { 
+                    span.bg-success.position-absolute.z-1{
+                        padding: 4px 12px;
+                        border-top-left-radius: 1rem;
+                    }
+                    img{
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+        // contact page
+        section#contact{
+            padding:8rem 0;
+            iframe{
+                height: 500px;
+            }
+        }
 
         // about us
         section#jumbotron_about{
@@ -321,7 +375,16 @@ $border-color:#47a76e;
                 padding: 10rem 0;
             }
         }
-        
+        // blog
+        section#blog{
+            .card{
+                img{
+                    object-fit: cover;
+                    width: 100%;
+                    height: 320px;
+                }
+            }
+        }
     }
 
     footer{
@@ -363,6 +426,114 @@ $border-color:#47a76e;
                 height: 500vh;
             }
         }
+         // products page
+         section#jumbotron_product{
+            height: 100vh;
+            overflow: hidden;
+            img{
+                height:100vh;
+            }
+            .container{
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+
+        section#product_lists{
+            padding: 10rem 0;
+
+            .featured_products{
+                a{
+                    
+                    img{
+                        height: 250px;
+                    }
+                }
+            }
+            #recent_products{
+                ul.list-group li a
+                { 
+                    span.bg-success.position-absolute.z-1{
+                        padding: 4px 12px;
+                        border-top-left-radius: 1rem;
+                    }
+                    img{
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+        // contact page
+        section#contact{
+            padding: 10rem 0;
+            iframe{
+                height: 900px;
+            }
+        }
+         // about us
+         section#jumbotron_about{
+            height: 100vh;
+            img{
+                height: 100vh;
+            }
+        }
+        section#about{
+            .novel_portfolio{
+                padding: 10rem 0;
+            }
+            .who_are_are{
+                padding: 10rem 0;
+            }
+            .certified_toll{
+                padding: 10rem 0 0 0;
+                img{
+                    width: 100%;
+                    height: 500px;
+                }
+                .certified_toll_content{
+                    .certified_icon{
+                        img{
+                            width: auto;
+                            height: 200px;
+                        }
+                    }
+                }
+            }
+            .organic{
+                height: 180vh;
+                img{
+                    height: 280vh;
+                }
+            }
+            .innovative{
+                padding: 10rem 0;
+            }
+            .committed{
+                padding: 10rem 0;
+            }
+            .mission_vision{
+                padding: 10rem 0;
+                .vision{
+                    img{
+                        height: 90px;
+                    }
+                }
+            }
+            .core_values{
+                padding: 10rem 0;
+                .d-flex{
+                    img{
+                        width: auto;
+                        height: 110px;
+                    }
+                }
+            }
+            .quality_standard{
+                padding: 10rem 0;
+            }
+        }
     }
 
     footer{
@@ -399,7 +570,6 @@ $border-color:#47a76e;
                 border-right: 2px solid $border_color;
             }
         }
-
         section#products{
             .col{
                 img{
@@ -410,17 +580,119 @@ $border-color:#47a76e;
                 }
             }
         }
-
         section#partner{
             .bg-white{
                 height: 500vh;
             }
         }
+        // products page
+        section#jumbotron_product{
+            height: 45vh;
+            img{
+                height:45vh;
+            }
+        }
+        
+        section#product_lists{
+            padding: 10rem 0;
+        
+            .featured_products{
+                a{
+                                
+                    img{
+                        height: 250px;
+                    }
+                }
+            }
+            #recent_products{
+                ul.list-group li a
+                { 
+                    span.bg-success.position-absolute.z-1{
+                        padding: 4px 12px;
+                        border-top-left-radius: 1rem;
+                    }
+                    img{
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+        // contact page
+        section#contact{
+            padding: 10rem 0;
+            iframe{
+                height: 350px;
+            }
+        }
+        // about us
+        section#jumbotron_about{
+            height: 45vh;
+            img{
+                height: 45vh;
+            }
+        }
+        section#about{
+        .novel_portfolio{
+            padding: 10rem 0;
+        }
+        .who_are_are{
+            padding: 10rem 0;
+        }
+        .certified_toll{
+                    padding: 10rem 0 0 0;
+                    img{
+                        width: 100%;
+                        height: 500px;
+                    }
+                            .certified_toll_content{
+                                .certified_icon{
+                                    img{
+                                        width: auto;
+                                        height: 200px;
+                                    }
+                                }
+                            }
+                }
+                .organic{
+                    height: 70vh;
+                    img{
+                        height: 129vh;
+                        top: 57vh;
+                    }
+                }
+                .innovative{
+                            padding: 10rem 0;
+                }
+                .committed{
+                            padding: 10rem 0;
+                }
+                .mission_vision{
+                            padding: 10rem 0;
+                            .vision{
+                                img{
+                                    height: 90px;
+                                }
+                            }
+                }
+                .core_values{
+                            padding: 10rem 0;
+                            .d-flex{
+                                img{
+                                    width: auto;
+                                    height: 110px;
+                                }
+                            }
+                }
+                .quality_standard{
+                            padding: 10rem 0;
+                }
+        }
     }
 
     footer{
         .row{
-            padding: 10rem 0;
+            padding: 6rem 0;
         }
         .input-group > .form-control{
             z-index: 1!important;
@@ -474,6 +746,86 @@ $border-color:#47a76e;
                 height: 500vh;
             }
         }
+         // products page
+         section#jumbotron_product{
+            height: 45vh;
+            img{
+                height:45vh;
+            }
+        }
+        
+        section#product_lists{
+            padding: 10rem 0;
+        
+            .featured_products{
+                a{
+                                
+                    img{
+                        height: 250px;
+                    }
+                }
+            }
+            #recent_products{
+                ul.list-group li a
+                { 
+                    span.bg-success.position-absolute.z-1{
+                        padding: 4px 12px;
+                        border-top-left-radius: 1rem;
+                    }
+                    img{
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+        // contact page
+        section#contact{
+            padding: 10rem 0;
+            iframe{
+                height: 600px;
+            }
+        }
+         // products page
+         section#jumbotron_product{
+            height: 45vh;
+            img{
+                height:45vh;
+            }
+        }
+        
+        section#product_lists{
+            padding: 10rem 0;
+        
+            .featured_products{
+                a{
+                                
+                    img{
+                        height: 250px;
+                    }
+                }
+            }
+            #recent_products{
+                ul.list-group li a
+                { 
+                    span.bg-success.position-absolute.z-1{
+                        padding: 4px 12px;
+                        border-top-left-radius: 1rem;
+                    }
+                    img{
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+        // contact page
+        section#contact{
+            padding: 10rem 0;
+            iframe{
+                height: 350px;
+            }
+        }
     }
 
     footer{
@@ -488,9 +840,7 @@ $border-color:#47a76e;
         }
     }
 }
-@media (min-width:1024px) {
 
-}
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
     main{
@@ -623,6 +973,7 @@ $border-color:#47a76e;
                 opacity: .9;
             }
         }
+        
         // products page
         section#jumbotron_product{
             height: 60vh;
@@ -632,6 +983,7 @@ $border-color:#47a76e;
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
+                height: unset;
             }
             .container{
                 left: 50%;
@@ -682,6 +1034,7 @@ $border-color:#47a76e;
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
+                height: unset;
             }
             .container{
                 left: 50%;

@@ -400,6 +400,30 @@ $border-color:#47a76e;
                 }
             }
         }
+        // careers
+        section#careers{
+            padding: 10rem 0;
+            .career_img{
+                img{
+                    width: 100%;
+                    height: 350px;
+                    object-fit: cover;
+                }
+            }
+            .career_list_opening{
+                ul.list-group li a
+                { 
+                    span.bg-success.position-absolute.z-1{
+                        padding: 4px 12px;
+                        border-radius: .5rem;
+                    }
+                    img{
+                        width: 260px;
+                        height: 100px;
+                    }
+                }
+            }
+        }
     }
 
     footer{

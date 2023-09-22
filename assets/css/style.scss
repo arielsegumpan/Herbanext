@@ -97,6 +97,7 @@ $border-color:#47a76e;
         }
     }
     main{
+
         section#jumbotron{
             img{
                 z-index: -1;
@@ -325,6 +326,14 @@ $border-color:#47a76e;
                         }
                     }
                 }
+
+                #partner{
+                    margin: 0 0 0rem 0;
+                    img{
+                        width: auto;
+                        height: 150px;
+                    }
+                }
             }
             .organic{
                 
@@ -550,6 +559,13 @@ $border-color:#47a76e;
                         }
                     }
                 }
+                #partner{
+                    margin: 0 0 8rem 0;
+                    img{
+                        width: auto;
+                        height: 150px;
+                    }
+                }
             }
             .organic{
                 height: 180vh;
@@ -711,14 +727,20 @@ $border-color:#47a76e;
                         width: 100%;
                         height: 500px;
                     }
-                            .certified_toll_content{
-                                .certified_icon{
-                                    img{
-                                        width: auto;
-                                        height: 200px;
-                                    }
-                                }
+                    .certified_toll_content{
+                        .certified_icon{
+                            img{
+                                width: auto;
+                                height: 200px;
                             }
+                        }
+                    }
+                    #partner{
+                        img{
+                            width: auto;
+                            height: 120px;
+                        }
+                    }
                 }
                 .organic{
                     height: 70vh;

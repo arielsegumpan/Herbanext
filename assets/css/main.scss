@@ -1,0 +1,88 @@
+$green: #0A7742;
+$trans: .3s ease;
+$nav-size: 15px;
+$gray: #6C6C6C;
+$graycustom: #F5F5F5;
+$black: #000000;
+$white: #ffffff;
+$warning: #ffc107;
+$green_light: #55FF70;
+
+@import url('https://fonts.cdnfonts.com/css/avenir');
+@import url('https://fonts.cdnfonts.com/css/museo?styles=43876');
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$font-family-sans-serif: 'Avenir', sans-serif!default;
+$dropdown-border-width: 0!default;
+$dropdown-border-radius: 10px;
+$nav-link-hover-color: $green!default;;
+$dropdown-link-hover-color: $green;
+$dropdown-link-hover-bg: none!default;
+$nav-link-font-size: $nav-size!default;
+$dropdown-font-size:$nav-size!default;
+$btn-border-radius: 12px!default;
+$btn-border-radius-sm: 9px!default;
+$btn-border-radius-lg: 12px!default;
+$input-border-radius:  12px!default;
+$dropdown-link-active-bg:  $green!default;
+$theme-colors:(
+    "secondary" : $gray,
+    "success": $green,
+    "warning": $warning,
+);
+
+$custom-colors: (
+  "white": $white,
+  "green": $green_light,
+  "black": $black,
+  "gray" : $graycustom,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/helpers";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here

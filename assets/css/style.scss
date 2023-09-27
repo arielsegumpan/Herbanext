@@ -630,6 +630,10 @@ $border-color:#47a76e;
                 }
             }
         }
+        // 404
+        section#error{
+            padding: 8rem 0;
+        }
     }
 
     footer{
@@ -790,7 +794,7 @@ $border-color:#47a76e;
          // blog
          section#blog{
             padding: 8rem 0;
-        }
+        }   
         // team
         section#team{
             .team_img{
@@ -1326,7 +1330,7 @@ $border-color:#47a76e;
             height: 60vh;
             overflow: hidden;
             img{
-                opacity: .5;
+                opacity: .3;
                 z-index: -1;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -1441,6 +1445,10 @@ $border-color:#47a76e;
                     height: 350px;
                 }
             }
+        }
+        // 404
+        section#error{
+            padding: 10rem 0;
         }
     }
 

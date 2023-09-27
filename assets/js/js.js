@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    AOS.init();
     //humberger
     const icons = document.querySelectorAll('.icon_ni');
     icons.forEach (icon => {  

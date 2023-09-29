@@ -38,7 +38,28 @@ $(document).ready(function () {
     );
 
     // story carousel
-    $('#story .owl-carousel').owlCarousel({
+    $('#story.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        autoplay:true,
+        smartSpeed: 3000,
+        autoplaySpeed: 3000,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    })
+
+     // service carousel
+     $('#services_carous.owl-carousel').owlCarousel({
         loop:true,
         margin:10,
         nav:true,

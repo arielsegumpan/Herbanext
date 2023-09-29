@@ -275,6 +275,28 @@ $border-color:#47a76e;
     }
 }
 @media (min-width: 375px) {
+    div#services_carous{
+        .owl-nav{
+            position: absolute;
+            bottom: -3rem;
+            left:50%;
+            transform: translateX(-50%);
+            button span{
+                border-radius: 10px;
+                padding: 8px 30px;
+                font-size: 2rem;
+            }
+            button.owl-prev span{
+                background-color: $gray;
+                color: $green;
+            }
+            button.owl-next span{
+                background-color: $gray;
+                color: $green;
+
+            }
+        }
+    }
     header{
         z-index: 999!important;
         div#navbarSupportedContent{
@@ -489,6 +511,14 @@ $border-color:#47a76e;
             }
         }
         section#about{
+            #who_we_are .col img{
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
             .novel_portfolio{
                 padding: 5rem 0;
             }
@@ -518,12 +548,21 @@ $border-color:#47a76e;
                         height: 150px;
                     }
                 }
+                .cert_img{
+                    img{
+                        width: 100%;
+                        height: 170px;
+                        object-fit: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
             }
             .organic{
                 
                 height: 125vh;
                 overflow: hidden;
-                img{
+                img#organic_img{
                     width: auto;
                     height: 206vh;
                     background-repeat: no-repeat;
@@ -533,6 +572,14 @@ $border-color:#47a76e;
                     right: 0;
                     top: 50%;
                     transform: translateY(-50%);
+                }
+                .org_img{
+                    img{
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        object-fit: cover;
+                        height: 150px;
+                    }
                 }
                 .container{
                     padding: 0 0 0;
@@ -634,6 +681,8 @@ $border-color:#47a76e;
         section#error{
             padding: 8rem 0;
         }
+
+       
     }
 
     footer{
@@ -729,6 +778,10 @@ $border-color:#47a76e;
             }
         }
         section#about{
+            #who_we_are .col img{
+                height: 200px;
+            }
+
             .novel_portfolio{
                 padding: 10rem 0;
             }
@@ -756,11 +809,29 @@ $border-color:#47a76e;
                         height: 150px;
                     }
                 }
+                .cert_img{
+                    img{
+                        width: 100%;
+                        height: 140px;
+                        object-fit: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
             }
             .organic{
                 height: 180vh;
-                img{
+                img#organic_img{
                     height: 280vh;
+                }
+                .org_img{
+                    img{
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        object-fit: cover;
+                        height: 200px;
+                        width: 100%;
+                    }
                 }
             }
             .innovative{
@@ -905,12 +976,15 @@ $border-color:#47a76e;
             }
         }
         section#about{
-        .novel_portfolio{
-            padding: 10rem 0;
-        }
-        .who_are_are{
-            padding: 10rem 0;
-        }
+            #who_we_are .col img{
+                height: 300px;
+            }
+            .novel_portfolio{
+                padding: 10rem 0;
+            }
+            .who_are_are{
+                padding: 10rem 0;
+            }
         .certified_toll{
                     padding: 10rem 0 0 0;
                     img{
@@ -931,12 +1005,26 @@ $border-color:#47a76e;
                             height: 120px;
                         }
                     }
+                    .cert_img{
+                        img{
+                            width: 100%;
+                            height: 130px;
+                            object-fit: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                    }
                 }
                 .organic{
                     height: 70vh;
-                    img{
+                    img#organic_img{
                         height: 129vh;
                         top: 57vh;
+                    }
+                    .org_img{
+                        img{
+                            height: 140px;
+                        }
                     }
                 }
                 .innovative{
@@ -992,6 +1080,7 @@ $border-color:#47a76e;
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+    
     header{
         div#navbarSupportedContent{
             background: none;
@@ -1028,6 +1117,11 @@ $border-color:#47a76e;
             }
         }
 
+        section#about{
+            #who_we_are .col img{
+                height: 200px;
+            }
+        }
         section#partner{
             .bg-white{
                 height: 500vh;
@@ -1145,6 +1239,11 @@ $border-color:#47a76e;
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
     main{
+        section#about{
+            #who_we_are .col img{
+                height: 280px;
+            }
+        }
         section#jumbotron{
             img{
                 z-index: -1;
@@ -1365,17 +1464,33 @@ $border-color:#47a76e;
                         }
                     }
                 }
+
+                .cert_img{
+                    img{
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
             }
             .organic{
                 padding: 10rem 0;
                 height: 122vh;
-                img{
+                img#organic_img{
                     width: 100%;
                     height: 122vh;
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;
                     z-index: -1;
+                }
+                .org_img{
+                    img{
+                        height: 190px;
+                        width: 100%;
+                    }
                 }
                 .container{
                     padding: 0 0 0;

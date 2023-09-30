@@ -276,6 +276,16 @@ $border-color:#47a76e;
 }
 @media (min-width: 375px) {
     div#services_carous{
+        .item{
+            img{
+                height: 250px;
+                width: 100%;
+                object-fit: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
         .owl-nav{
             position: absolute;
             bottom: -3rem;
@@ -573,6 +583,19 @@ $border-color:#47a76e;
                     top: 50%;
                     transform: translateY(-50%);
                 }
+                .bg_color{
+                    position: absolute;
+                    height: 220vh;
+                    width: 100%;
+                    overflow: hidden;
+                    background: rgb(255,255,255);
+                    background: -moz-linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 8%, rgba(255,255,255,0) 80%);
+                    background: -webkit-linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 8%, rgba(255,255,255,0) 80%);
+                    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 8%, rgba(255, 255, 255, 0) 80%);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+                    top: 0;
+                    left: 0;
+                }
                 .org_img{
                     img{
                         background-position: center;
@@ -699,6 +722,13 @@ $border-color:#47a76e;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+    div#services_carous{
+        .item{
+            img{
+                height: 350px;
+            }
+        }
+    }
     main{
         section#jumbotron{
             img{
@@ -894,6 +924,13 @@ $border-color:#47a76e;
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+    div#services_carous{
+        .item{
+            img{
+                height: 450px;
+            }
+        }
+    }
     main{
         section#jumbotron{
             img{
@@ -1080,7 +1117,13 @@ $border-color:#47a76e;
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    
+    div#services_carous{
+        .item{
+            img{
+                height: 350px;
+            }
+        }
+    }
     header{
         div#navbarSupportedContent{
             background: none;
@@ -1238,6 +1281,13 @@ $border-color:#47a76e;
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+    div#services_carous{
+        .item{
+            img{
+                height: 400px;
+            }
+        }
+    }
     main{
         section#about{
             #who_we_are .col img{

@@ -20,9 +20,17 @@ $(document).ready(function () {
 
         if (scrollTop >= 50) {
             $navbar.addClass('bg_nav_white');
+            $('#scroll_btn').fadeIn('slow');
         } else {
             $navbar.removeClass('bg_nav_white');
+            $('#scroll_btn').fadeOut('slow');
         }
+    });
+    $('#scroll_btn').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        },300);
+        return false;
     });
 
     // Add hover event handlers

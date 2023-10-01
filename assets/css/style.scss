@@ -7,6 +7,23 @@ $trans: .3s ease;
 $black: #1a1a1a;
 $border-color:#47a76e;
 *{
+    // scroll button
+    #scroll_btn {
+        position: absolute;
+        right: 1.5rem;
+        z-index: 999;
+        bottom: 2rem;
+        position: fixed;
+        cursor: pointer;
+        display: none;
+        i{
+            color: white;
+            padding:.8rem;
+            transition: $trans;
+            border: 1px solid white;
+        }
+    }
+    
     // preloader
     #preloader {
         width: 100%;

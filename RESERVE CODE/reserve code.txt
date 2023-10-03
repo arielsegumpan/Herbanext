@@ -1,0 +1,1735 @@
+// function custom_category_list_shortcode($atts) {
+//     // Shortcode attributes (if needed)
+//     $atts = shortcode_atts(array(
+//         'orderby' => 'name',
+//         'order'   => 'ASC',
+//     ), $atts);
+
+//     // Query categories based on shortcode attributes
+//     $categories = get_categories(array(
+//         'orderby' => $atts['orderby'],
+//         'order'   => $atts['order'],
+//     ));
+
+//     // Start building the output
+//     $output = '';
+//     // Loop through categories and create list items
+//     foreach ($categories as $category) {
+//         $output .= '<a href="' . get_category_link($category->term_id) . '" class="text-decoration-none mb-2">
+//         <span class="badge text-bg-green rounded-2 text-small px-3 me-2">' . $category->name . '</span></a>';
+//     }
+//     return $output;
+// }   
+// add_shortcode('all_category_list', 'custom_category_list_shortcode');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+/**
+ * Register Herbanext Custom Post Type.
+ * @package herbanext
+ */
+namespace HERBANEXT_THEME\Inc;
+use HERBANEXT_THEME\Inc\Traits\Singleton;
+
+class HerbanextCPT{
+    use Singleton;
+
+    protected function __construct() {
+        // Add action hooks to register custom post types
+        $this->setup_cpt_hooks();
+    }
+
+    protected function setup_cpt_hooks(){
+        add_action('init', [$this, 'register_careers_post_type']);
+        add_action('init', [$this, 'register_publications_post_type']);
+        add_action('init', [$this, 'register_trainingseminars_post_type']);
+    }
+    // Register Custom Post Type for Careers
+    public function register_careers_post_type() {
+        $labels = array(
+            'name'                  => 'Careers',
+            'singular_name'         => 'Career',
+            'menu_name'             => 'Careers',
+            'add_new'               => 'Add New Career',
+            'add_new_item'          => 'Add New Career',
+            'edit_item'             => 'Edit Career',
+            'new_item'              => 'New Career',
+            'all_items'             => 'All Careers',
+            'view_item'             => 'View Career',
+            'search_items'          => 'Search Careers',
+            'not_found'             => 'No careers found',
+            'not_found_in_trash'    => 'No careers found in trash',
+            
+        );
+
+        $args = array(
+            'labels'                => $labels,
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => array('slug' => 'careers'),
+            'taxonomies'            => ['post_tag', 'category'],	
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
+            'menu_position'         => 4,
+            'show_in_rest'          => true,
+            'supports'              => array(
+                'title',
+                'editor',
+                'excerpt',
+                'trackbacks',
+                'custom-fields',
+                'comments',
+                'revisions',
+                'thumbnail',
+                'author',
+                'page-attributes',
+                'permalinks',
+            ),
+            'menu_icon'             => 'dashicons-businessman', // Icon for Careers
+        );
+
+        register_post_type('careers', $args);
+    }
+
+    // Register Custom Post Type for Publications
+    public function register_publications_post_type() {
+        $labels = array(
+            'name'                  => 'Publications',
+            'singular_name'         => 'Publication',
+            'menu_name'             => 'Publications',
+            'add_new'               => 'Add New Publication',
+            'add_new_item'          => 'Add New Publication',
+            'edit_item'             => 'Edit Publication',
+            'new_item'              => 'New Publication',
+            'all_items'             => 'All Publications',
+            'view_item'             => 'View Publication',
+            'search_items'          => 'Search Publications',
+            'not_found'             => 'No publications found',
+            'not_found_in_trash'    => 'No publications found in trash',
+        );
+
+        $args = array(
+            'labels'                => $labels,
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => array('slug' => 'publications'),
+            'taxonomies'            => ['post_tag', 'category'],
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
+            'menu_position'         => 5,
+            'show_in_rest'          => true,
+            'supports'              => array(
+                'title',
+                'editor',
+                'excerpt',
+                'trackbacks',
+                'custom-fields',
+                'comments',
+                'revisions',
+                'thumbnail',
+                'author',
+                'page-attributes',
+                'permalinks',
+            ),
+            'menu_icon'             => 'dashicons-welcome-write-blog', // Icon for Publications
+        );
+
+        register_post_type('publications', $args);
+    }
+
+    // Register Custom Post Type for Training Seminars
+    public function register_trainingseminars_post_type() {
+        $labels = array(
+            'name'                  => 'Training Seminars',
+            'singular_name'         => 'Training Seminar',
+            'menu_name'             => 'Training Seminars',
+            'add_new'               => 'Add New Training Seminar',
+            'add_new_item'          => 'Add New Training Seminar',
+            'edit_item'             => 'Edit Training Seminar',
+            'new_item'              => 'New Training Seminar',
+            'all_items'             => 'All Training Seminars',
+            'view_item'             => 'View Training Seminar',
+            'search_items'          => 'Search Training Seminars',
+            'not_found'             => 'No training seminars found',
+            'not_found_in_trash'    => 'No training seminars found in trash',
+        );
+
+        $args = array(
+            'labels'                => $labels,
+            'public'                => true,
+            'publicly_queryable'    => true,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'query_var'             => true,
+            'rewrite'               => array('slug' => 'training-and-seminars'),
+            'taxonomies'            => ['post_tag', 'category'],
+            'capability_type'       => 'post',
+            'has_archive'           => true,
+            'hierarchical'          => false,
+            'menu_position'         => 6,
+            'show_in_rest'          => true,
+            'supports'              => array(
+                'title',
+                'editor',
+                'excerpt',
+                'trackbacks',
+                'custom-fields',
+                'comments',
+                'revisions',
+                'thumbnail',
+                'author',
+                'page-attributes',
+                'permalinks',
+            ),
+            'menu_icon'             => 'dashicons-groups', // Icon for Training Seminars
+        );
+
+        register_post_type('trainingseminars', $args);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function custom_category_list_shortcode($atts) {
+    // Shortcode attributes (if needed)
+    $atts = shortcode_atts(array(
+        'orderby' => 'name',
+        'order'   => 'ASC',
+    ), $atts);
+
+    // Query categories based on shortcode attributes
+    $categories = get_categories(array(
+        'orderby' => $atts['orderby'],
+        'order'   => $atts['order'],
+    ));
+
+    // Start building the output
+    $output = '';
+    // Loop through categories and create list items
+    foreach ($categories as $category) {
+        $output .= '<a href="' . get_category_link($category->term_id) . '" class="text-decoration-none mb-2">
+        <span class="badge text-bg-green rounded-2 text-small px-3 me-2">' . $category->name . '</span></a>';
+    }
+    return $output;
+}   
+add_shortcode('all_categories', 'custom_category_list_shortcode');
+
+
+
+
+
+                            <?php
+                                // Get the post content or any other content you want to search
+                                $content = get_post()->post_content; // Replace with your content source
+
+                                // Define the shortcode you want to search for
+                                $shortcode = '[all_categories]';
+
+                                // Check if the shortcode exists in the content
+                                if (strpos($content, $shortcode) !== false):
+                                    // Display the shortcode if found
+                                    echo do_shortcode($shortcode);
+                                else:
+                                    // The shortcode [all_categories] is not present in the content
+                                    echo 'The shortcode [all_categories] is not present in the content.';
+                                endif
+                            
+                            ?>
+
+
+
+
+
+
+
+
+
+// Get all categoreis
+function get_all_categories_shortcode() {
+    $categories = get_categories(array(
+        'post_type' => ['post', 'careers', 'publications', 'trainingseminars'],
+        'hide_empty' => 1,
+    ));
+
+    ob_start();
+
+    foreach ($categories as $category) {
+        echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge text-bg-green rounded-2 mb-2 text-small px-3 me-2 text-decoration-none">' . esc_html($category->name) . '</a>';
+    }
+
+    return ob_get_clean();
+}
+
+add_shortcode('all_categories', 'get_all_categories_shortcode');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+/**
+ * Functions template
+ * @package herbanext
+ */
+
+use HERBANEXT_THEME\Inc\HERBANEXT_THEME;
+
+!defined('HERBANEXT_DIR_PATH') ? define('HERBANEXT_DIR_PATH',untrailingslashit( get_template_directory() )) : '';
+!defined('HERBANEXT_DIR_URI') ? define('HERBANEXT_DIR_URI',untrailingslashit( get_template_directory_uri() )) : '';
+require_once HERBANEXT_DIR_PATH . '/inc/helpers/autoloader.php';
+
+function herbanext_get_theme_instance(){
+    HERBANEXT_THEME::get_instance();
+}
+herbanext_get_theme_instance();
+
+// bootstrap navwalker
+if ( ! file_exists( get_template_directory() . '/inc/navwalker/bootstrap_5_wp_nav_menu_walker.php' ) ) 
+{
+        // file does not exist... return an error.
+        return new WP_Error( 'bootstrap_5_wp_nav_menu_walker-missing', __( 'It appears the bootstrap_5_wp_nav_menu_walker.php file may be missing.', 'bootstrap_5_wp_nav_menu_walker' ) );
+} else{
+        // file exists... require it.
+        require_once get_template_directory().'/inc/navwalker/bootstrap_5_wp_nav_menu_walker.php';
+}
+
+
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+add_filter( 'woocommerce_page_title', 'new_woocommerce_page_title' );
+function new_woocommerce_page_title( $page_title ) {
+	if ( $page_title == 'Shop' ) {
+		return '<span class="fw-bold fs-2">Prodcut Catalog</span>';
+	}
+}
+
+// Encapsulate ACF fields
+function get_acf_field($field_name) {
+    return function_exists('get_field') ? get_field($field_name) : null;
+}
+
+// Add custom image tag in product catalog
+if (!function_exists('woocommerce_template_loop_product_thumbnail')) {
+    function woocommerce_template_loop_product_thumbnail() {
+        if (!class_exists('WooCommerce')) {
+            return;
+        }
+
+        global $post;
+        $size = 'shop_catalog'; // You can change the image size here.
+        $title = get_the_title();
+        $image = has_post_thumbnail() ? get_the_post_thumbnail_url($post->ID, $size) : wc_placeholder_img_src($size);
+
+        echo '<img class="rounded-3" src="' . esc_url($image) . '" alt="' . esc_attr($title) . '">';
+    }
+}
+
+
+
+// Get Categories by Post Type
+function post_categories_by_post_type_shortcode($atts) {
+    global $post;
+
+    // Check if we have a valid post
+    if (!isset($post) || empty($post->ID)) {
+        return 'No post found.';
+    }
+
+    // Define the allowed post types
+    $allowed_post_types = array('careers', 'publications', 'trainingseminars', 'post');
+
+    // Get the post's post type
+    $post_type = get_post_type($post);
+
+    // Check if the post type is allowed
+    if (in_array($post_type, $allowed_post_types)) {
+        // Get the post's categories
+        $categories = get_the_category();
+        $output = '';
+
+        if (!empty($categories)) {
+            foreach ($categories as $category) {
+                $output .= '<a href="' . get_category_link($category->term_id) . '" class="text-decoration-none mb-2">
+                    <span class="badge text-bg-green rounded-2 text-small px-3 me-2">
+                    ' . $category->name . '</span></a>';
+            }
+        } else {
+            $output = '';
+        }
+    } else {
+        $output = '';
+    }
+    return $output;
+}
+
+add_shortcode('post_categories', 'post_categories_by_post_type_shortcode');
+
+
+function custom_category_list_shortcode($atts) {
+    // Shortcode attributes (if needed)
+    $atts = shortcode_atts(array(
+        'orderby' => 'name',
+        'order'   => 'ASC',
+    ), $atts);
+
+    // Query categories based on shortcode attributes
+    $categories = get_categories(array(
+        'orderby' => $atts['orderby'],
+        'order'   => $atts['order'],
+    ));
+
+    // Start building the output
+    $output = '';
+    // Loop through categories and create list items
+    foreach ($categories as $category) {
+        $output .= '<a href="' . get_category_link($category->term_id) . '" class="text-decoration-none mb-2">
+        <span class="badge text-bg-green rounded-2 text-small px-3 me-2">' . $category->name . '</span></a>';
+    }
+    return $output;
+}   
+add_shortcode('all_categories', 'custom_category_list_shortcode');
+
+
+
+
+// Breadcrumbs
+function custom_breadcrumbs() {
+    echo '<a class="text-success text-decoration-none" href="'.esc_url(home_url()).'" rel="nofollow"><i class="bi bi-house me-2"></i>'.__('Home', 'your-herbanext').'</a>';
+
+    if (is_archive() || is_home()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        echo '<span>' . esc_html(wp_title('', false)) . '</span>';
+    }
+
+    if (is_category() || is_single()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        
+        // Get the post type's slug (or category slug)
+        $post_type = get_post_type();
+        $post_type_slug = '';
+
+        if ($post_type == 'post') {
+            $post_type_slug = __('News', 'herbanext');
+        } else {
+            if (is_single()) {
+                $post_type_slug = ucfirst(get_post_type());
+            } else {
+                $post_type_slug = ucfirst(get_queried_object()->slug);
+            }
+        }
+        // Construct the archive link manually
+        $archive_link = esc_url(home_url()) . '/' . strtolower($post_type_slug) . '/';
+
+        // Output the post type's slug as a breadcrumb with a link
+        echo '<a class="text-success text-decoration-none" href="' . esc_url($archive_link) . '">' . esc_html($post_type_slug) . '</a>';
+
+        if (is_single()) {
+            echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+            the_title();
+        }
+    } elseif (is_page()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        echo esc_html(get_the_title());
+    } elseif (is_search()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;".__('Search Results for... ', 'your-herbanext');
+        echo '"<em>';
+        echo esc_html(get_search_query());
+        echo '</em>"';
+    }
+}
+
+
+// Remove the product title from WooCommerce product loop
+add_action('init', 'remove_loop_title');
+function remove_loop_title() {
+    remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+}
+
+
+///breadcrumbs
+// function custom_breadcrumbs() {
+//     echo '<a class="text-success text-decoration-none" href="'.esc_url(home_url()).'" rel="nofollow"><i class="bi bi-house me-2"></i>'.__('Home', 'your-herbanext').'</a>';
+
+//     if (is_archive() || is_home()) {
+//         echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+//         echo '<span>' . esc_html(wp_title('', false)) . '</span>';
+//     }
+
+//     if (is_category() || is_single()) {
+//         echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        
+//         // Get the post type's slug (or category slug)
+//         $post_type = get_post_type();
+//         $post_type_slug = '';
+
+//         if ($post_type == 'post') {
+//             $post_type_slug = __('News', 'herbanext');
+//         } else {
+//             if (is_single()) {
+//                 $post_type_slug = ucfirst(get_post_type());
+//             } else {
+//                 $post_type_slug = ucfirst(get_queried_object()->slug);
+//             }
+//         }
+//         // Construct the archive link manually
+//         $archive_link = esc_url(home_url()) . '/' . strtolower($post_type_slug) . '/';
+
+//         // Output the post type's slug as a breadcrumb with a link
+//         echo '<a class="text-success text-decoration-none" href="' . esc_url($archive_link) . '">' . esc_html($post_type_slug) . '</a>';
+
+//         if (is_single()) {
+//             echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+//             the_title();
+//         }
+//     } elseif (is_page()) {
+//         echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+//         echo esc_html(get_the_title());
+//     } elseif (is_search()) {
+//         echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;".__('Search Results for... ', 'your-herbanext');
+//         echo '"<em>';
+//         echo esc_html(get_search_query());
+//         echo '</em>"';
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function custom_get_featured_products_shortcode() {
+        // Query WooCommerce for 4 featured products
+        $featured_products = wc_get_products(array(
+            'limit' => 4,
+            'status' => 'publish',
+            'visibility' => 'catalog',
+            'featured' => true,
+        ));
+    
+        // Initialize output
+        $output = '';
+    
+        if (!empty($featured_products)) :
+            foreach ($featured_products as $product) {
+                $product_link = esc_url(get_permalink($product->get_id()));
+                $product_image = esc_url(wp_get_attachment_image_url($product->get_image_id(), 'large'));
+                $output .= '<div class="col">
+                                <div class="position-relative">
+                                    <a href="' . $product_link . '" class="text-decoration-none position-relative">
+                                        <span class="position-absolute badge mt-3 ms-3 rounded-3 bg-success px-2 text-white small">
+                                            Featured
+                                        </span>
+                                        <img src="' . $product_image . '" alt="' . esc_attr($product->get_name()) . '" class="img-fluid object-fit-cover rounded-5">
+                                    </a>
+                                </div>
+                            </div>';
+            }
+        else :
+            $output .= '<p>No featured products found.</p>';
+        endif;
+        return $output;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    function herbanext_custom_btn_single(){
+        $custom_btn_link = site_url('/contact');
+        $custom_btn_link_2 = home_url('/shop');
+        echo ' <div id="product_btn" class="vstack gap-3 col-md-5 mx-auto w-100 mt-5 mb-5">';
+        echo '<a href="'.esc_url($custom_btn_link).'" class="btn btn-success py-3 fs-6"><i class="bi bi-info-circle me-2"></i>'.__("Inquire").'</a>';
+        echo '<a href="'.esc_url($custom_btn_link_2).'" class="btn btn-outline-success btn-block btn-md py-3 px-4 mt-2 mb-3 ripple"><i class="bi bi-eye me-2"></i>'.__("View Other Products").'</a>';
+        echo '</div>';
+    }
+    // remove sale tag
+    function remove_woocommerce_sale_flash($html, $post, $product) {
+        // Check if the product is on sale
+        if ($product->is_on_sale()) {
+            $html = '';
+        }
+        return $html;
+    }
+    // custom shop title
+    function abChangeProductsTitle() {
+        echo '<h5 class="woocommerce-loop-product_title museo text-center fw-bold"><a class="text-decoration-none text-success" href="'.get_the_permalink().'">' . get_the_title() . '</a></h5>';
+    
+    }
+
+
+
+
+
+
+
+
+
+    
+<select name="archive-dropdown" class="form-control custom-select" id="exampleFormControlSelect1" onChange='document.location.href=this.options[this.selectedIndex].value;'>
+<option value=""><?php echo esc_attr(__('Select Month')); ?></option>
+<?php
+$args = array('type' => 'monthly','format' => 'option', 'show_post_count' => true);
+wp_get_archives($args);?>
+</select>
+
+
+
+
+/**
+ * @package herbanext
+ */
+
+ namespace HERBANEXT_THEME\Inc;
+
+use HERBANEXT_THEME\Inc\Traits\Singleton;
+
+class Getpost {
+    use Singleton;
+
+    protected function __construct() {
+        $this->setup_recent_post_hooks();
+    }
+
+    protected function setup_recent_post_hooks() {
+        add_shortcode('herbanext_career_posts', [$this,'herbanext_career_post']);
+        add_shortcode('herbanext_training_seminar_posts', [$this,'herbanext_training_seminar_post']);
+        add_shortcode('herbanext_publications_posts', [$this,'herbanext_publications_post']);
+    }
+    // Create shortcode getting recent products displaying on the front page
+    function herbanext_career_post() {
+        $args = array(
+            'post_type'      => 'careers',
+            'post_status'    => 'publish',
+            'posts_per_page' => 10,
+        );
+        
+        $career_query = new \WP_Query($args);
+        ob_start();
+        if ($career_query->have_posts()) :
+            while ($career_query->have_posts()) : $career_query->the_post();
+                get_template_part('template-parts/components/blog/entry-content');
+            endwhile;
+        else :
+            get_template_part('template-parts/content/content-empty');
+        endif;
+        wp_reset_postdata();
+        return ob_get_clean();
+    }
+
+    function herbanext_training_seminar_post() {
+        $args = array(
+            'post_type'     => 'trainingseminars',
+            'post_status'   => 'publish',
+            'posts_per_page' => 10,
+        );
+        $getCareer = new \WP_Query($args);
+        ob_start();
+        if($getCareer->have_posts()): 
+            while($getCareer->have_posts()): $getCareer->the_post();
+                get_template_part('template-parts/components/blog/entry-content');
+            endwhile; 
+        else:?>
+            <?php get_template_part('template-parts/content/content-empty');
+        endif;
+        wp_reset_postdata();
+        return ob_get_clean();
+    }
+
+    function herbanext_publications_post() {
+        $args = array(
+            'post_type'     => 'publications',
+            'post_status'   => 'publish',
+            'posts_per_page' => 10,
+        );
+        $getCareer = new \WP_Query($args);
+        ob_start();
+        if($getCareer->have_posts()): 
+            while($getCareer->have_posts()): $getCareer->the_post();
+                get_template_part('template-parts/components/blog/entry-content');
+            endwhile; 
+        else:?>
+            <?php get_template_part('template-parts/content/content-empty');
+        endif;
+        wp_reset_postdata();
+        return ob_get_clean();
+    }
+}
+
+
+
+
+ <section id="jumbotron_about" class="w-100 position-relative">
+            <?php if($story_jumb != null) :?>
+                <img src="<?php echo esc_url($story_jumb['story_jumbotron']['url']) ?>" alt="<?php echo esc_attr($story_jumb['story_jumbotron']['alt']) ?>" class="object-fit-cover w-100 position-absolute top-0 left-0">
+            <?php endif ?>
+            <div class="container position-absolute">
+                <?php echo shortcode_exists('custom_page_headers') ? do_shortcode( '[custom_page_headers]' ) : ''?>
+            </div>
+        </section>  
+
+
+
+         <?php
+            if(is_page() && !is_front_page()):?>
+                <h1 class="display-2 museo fw-bold text-success">
+                    <?php single_post_title() ?>
+                </h1>
+                <h6 class="mt-4">
+                    <nav aria-label="breadcrumb">
+                        <?php custom_breadcrumbs() ?>
+                    </nav>
+                </h6>
+            <?php endif?>
+
+
+
+
+=================TEAM Page
+<?php
+/**
+ * Template Name: Team
+ * @package herbanext
+ */
+get_header();
+
+$team_jumb = get_acf_field('team_jumbotron');
+$team_cards = get_acf_field('team_cards');
+$team_card_contents = $team_cards ? $team_cards['card'] : [];
+$team_card_socmeds = $team_card_contents ? $team_card_contents['socmed_links'] : [];
+
+?>
+    <main>
+        <!-- jumbotron -->
+        <section id="jumbotron_about" class="w-100 position-relative">
+           <?php if($team_jumb): ?>
+            <img src="<?php echo esc_url($team_jumb['jumbotron_image']['url']) ?>" alt="<?php echo esc_url($team_jumb['jumbotron_image']['alt']) ?>" class="object-fit-cover w-100 position-absolute top-0 left-0">
+           <?php endif?>
+            <div class="container position-absolute">
+                <div class="col-12 col-md-8 col-lg-6 mx-auto text-center my-auto">
+                <?php
+                    if(is_page() && !is_front_page()):?>
+                        <h1 class="display-2 museo fw-bold text-success">
+                            <?php single_post_title() ?>
+                        </h1>
+                    <?php endif
+                ?>
+                    <h6 class="mt-4">
+                        <nav aria-label="breadcrumb">
+                            <?php custom_breadcrumbs() ?>
+                        </nav>
+                    </h6>
+                </div>
+            </div>
+        </section>  
+        <section id="team">
+            <div class="container">
+                <div class="row">
+                    <?php if($team_cards != null) :?>
+                        <?php foreach ($team_card_contents as $team_card_content):?>
+                        <div class="col-12 col-md-4 col-lg-3 pb-4 text-center mb-5">
+                            <div class="team_img">
+                               <?php if(isset($team_card_content)) :?>
+                                <img src="<?php echo esc_url($team_card_content['profile_picture']['url']) ?>" alt="<?php echo esc_attr($team_card_content['profile_picture']['alt']) ?>" class="img-fluid object-fit-cover rounded-5">
+                                <h4 class="fw-bold text-success mt-5"><?php echo esc_html_e($team_card_content['team_name'])?></h4>
+                                <h6 class="text-secondary px-lg-5 mt-3 small"><?php echo esc_html_e($team_card_content['team_description']) ?></h6>
+                               <?php endif?>
+                                <hr class="w-50 mx-auto my-4">
+                                <?php if(isset($team_card_socmeds)):?>
+                                <div class="d-flex flex-row justify-content-center gap-3 mx-auto">
+                                <?php foreach($team_card_socmeds as $team_card_socmed): ?>
+                                    <a href="<?php echo esc_url($team_card_socmed['links']) ?>" class="text-decoration-none btn btn-success fs-3">
+                                        <?php echo wp_kses_decode_entities( $team_card_socmed['socmed_icon'] ) ?>
+                                    </a>
+                                <?php endforeach?>
+                                </div>
+                                <?php endif?>
+                            </div>
+                        </div>
+                        <?php endforeach?>
+                    <?php endif?>
+
+                </div>
+            </div>
+        </section>            
+    </main>
+
+
+
+
+<?php
+get_footer()?>
+
+
+
+
+==================================PAGE STORY=================================
+<?php
+/**
+ * Template Name: Story
+ * @package herbanext
+ */
+get_header();
+
+$story_jumb = get_acf_field('story_jumbotron');
+$story_who_we_Are = get_acf_field('who_we_are');
+$who_imgs = $story_who_we_Are ? $story_who_we_Are['content_image'] : [];
+$novel_portfolio = get_acf_field('novel_portfolio');
+$certified_toll = get_acf_field('certified_toll');
+$organic = get_acf_field('organic');
+$innovative = get_acf_field('innovative');
+$committed = get_acf_field('committed_to_science');
+$mission_and_vision = get_acf_field('mission_and_vision');
+$vision_cards = $mission_and_vision ? $mission_and_vision['herbanext_visions'] : [];
+$core_values = get_acf_field('core_values');
+$core_values_imgs = $core_values ? $core_values['core_values_cards'] : [];
+$quality_standard = get_acf_field('quality_standard');
+$quality_standard_lists = $quality_standard ? $quality_standard['quality_standard_lists'] : [];
+$quality_standard_imgs = $quality_standard ? $quality_standard['quality_standard_images'] : [];
+?>
+
+    <main>
+        <!-- jumbotron -->
+        <section id="jumbotron_about" class="w-100 position-relative">
+           <?php if($story_jumb != null) :?>
+                <img src="<?php echo esc_url($story_jumb['jumbotron_story_image']['url']) ?>" alt="<?php echo esc_attr($story_jumb['jumbotron_story_image']['alt']) ?>" class="object-fit-cover w-100 position-absolute top-0 left-0">
+           <?php endif?>
+            <div class="container position-absolute">
+                <?php echo do_shortcode( '[custom_page_headers]' ) ?>
+            </div>
+        </section>  
+       <section id="about">
+        <!-- who we are -->
+        <?php if($story_who_we_Are != null):?>
+        <div class="who_are_are">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-5 mb-md-0 text-center text-md-start">
+                        <h1 class="display-3 museo fw-bold">
+                            <?php echo esc_html_e($story_who_we_Are['content_title'])?>
+                        </h1>
+                        <p class="lh-lg text-secondary mt-5">
+                            <?php echo esc_textarea($story_who_we_Are['content'])?>
+                        </p>    
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="row mb-4">
+                        <?php if($who_imgs):?>
+                            <?php foreach ($who_imgs as $key => $who_img):?>
+                            <div class="col<?php echo $key === array_key_first($who_imgs) ? '-12 mb-4' : '' ?>">
+                                <img src="<?php echo esc_url($who_img['image']['url'])?>" alt="<?php echo esc_attr($who_img['image']['alt'])?>" class="img-fluid w-100 rounded-5 object-fit-cover">
+                            </div>
+                            <?php endforeach ?>
+                        <?php endif?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+        <!-- novel portfolio -->
+        <?php if($novel_portfolio != NULL) :?>
+        <div class="novel_portfolio bg-success">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6 px-md-5 mb-5 mb-md-0 text-center text-md-start">
+                    <h1 class="display-5 museo text-white fw-bold mb-5"><?php echo esc_html_e($novel_portfolio['content_title']) ?></h1>
+                        <img src="<?php echo esc_url($novel_portfolio['content_image']['url']) ?>" alt="<?php echo esc_url($novel_portfolio['content_image']['alt']) ?>" class="img-fluid rounded-5">
+                    </div>
+                    <div class="col-12 col-md-6 text-center text-md-start my-auto pe-md-5">
+                        <p class="text-secondary text-gray lh-lg">
+                            <?php echo esc_textarea(nl2br($novel_portfolio['content'])) ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif ?>
+        <!-- certified toll -->
+        <?php if($certified_toll != NULL): ?>
+        <div class="certified_toll">
+            <div class="container">
+                <div class="col-12 text-center">
+                    <img src="<?php echo esc_url($certified_toll['certified_toll_image']['url']) ?>" alt="<?php echo esc_attr($certified_toll['certified_toll_image']['alt']) ?>" class="rounded-5 object-fit-cover">
+                    <div class="certified_toll_content">
+                        <div class="col-12 col-lg-5 mx-auto">
+                            <div class="certified_icon mb-5">
+                                <img src="<?php echo esc_url($certified_toll['certified_toll_icon']['url']) ?>" alt="<?php echo esc_attr($certified_toll['certified_toll_icon']['alt']) ?>">
+                            </div>
+                            <h1 class="display-5 museo fw-bold mb-5"><?php echo esc_html_e($certified_toll['content_title']) ?></h1>
+                        </div>
+                        
+                        <p class="lh-lg mt-5 text-secondary px-md-5">
+                            <?php echo esc_textarea(nl2br($certified_toll['content'])) ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif ?>
+        <!-- organic -->
+        <?php if($organic != NULL):?>
+        <div class="organic position-relative w-100">
+            <img src="<?php echo esc_url($organic['oragnic_image']['url']) ?>" alt="<?php echo esc_attr($organic['oragnic_image']['alt']) ?>" class="object-fit-cover w-100 position-absolute">
+            <div class="container position-absolute">
+                <div class="row">
+                    <div class="col-12 col-lg-8 col-xl-7 me-auto my-auto px-5 px-md-auto">
+                        <h1 class="museo dispaly-5 text-black fw-bold pe-5"><?php echo esc_html_e($organic['organic_title']) ?></h1>
+                        <p class="lh-lg text-secondary mt-5">
+                            <?php echo esc_textarea(nl2br($organic['organic_content'])) ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+        <!-- innovative solutions -->
+        <?php if($innovative != null): ?>
+        <div class="innovative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <img src="<?php echo esc_url($innovative['innovative_image']['url']) ?>" alt="<?php echo esc_attr($innovative['innovative_image']['alt']) ?>" class="img-fluid rounded-5">
+                    </div>
+                    <div class="col-12 col-md-6 my-auto px-md-5 text-center text-md-start">
+                        <h1 class="museo dispaly-5 text-black fw-bold pe-md-5 mt-5 mt-md-0"><?php echo esc_html_e($innovative['innovative_title']) ?></h1>
+                        <p class="lh-lg text-secondary mt-5">
+                        <?php echo esc_textarea(nl2br($innovative['innovative_content'])) ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+        <!-- committed to science -->
+        <?php if($committed != null) :?>
+        <div class="committed bg-success">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 my-auto text-center text-md-start mb-5 mb-md-0">
+                        <h1 class="museo display-5 text-white fw-bold"><?php echo esc_html_e($committed['committed_title']) ?></h1>
+                        <p class="lh-lg text-white mt-5">
+                        <?php echo esc_textarea(nl2br($committed['committed_content'])) ?>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <img src="<?php echo esc_url($committed['committed_image']['url']) ?>" alt="<?php echo esc_url($committed['committed_image']['alt']) ?>" class="img-fluid rounded-4 rounded-md-5">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif ?>
+        <!-- mission vision -->
+        <?php if($mission_and_vision != null): ?>
+        <div class="mission_vision">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <?php if($mission_and_vision['mission_image'] != null )  :?>
+                        <img src="<?php echo esc_url($mission_and_vision['mission_image']['url']) ?>" alt="<?php echo esc_attr($mission_and_vision['mission_image']['alt']) ?>" class="img-fluid rounded-5">
+                        <?php endif?>
+                    </div>
+                    <div class="col-12 col-md-6 mx-auto text-center mt-5">
+                        <div class="mission">
+                            <h1 class="museo dispaly-5 fw-bold"><?php echo esc_html_e($mission_and_vision['mission_title']) ?></h1>
+                            <p class="lh-lg lead"><?php echo esc_html_e($mission_and_vision['mission_subheading']) ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vision">
+                    <div class="row mb-5">
+                        <div class="col-12 col-md-6 mx-auto text-center mt-5">
+                            <div class="mission">
+                                <h1 class="museo display-5 fw-bold"><?php echo esc_html_e($mission_and_vision['vision_title']) ?></h1>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="row row-cols row-cols-md-2 row-cols-lg-3 row-gap-5">
+                   <?php if($vision_cards):?>
+                        <?php foreach ($vision_cards as $key => $vision_card):?>
+                            <div class="col">
+                                <div class="d-flex flex-row justify-content-between align-items-start gap-3">
+                                    <?php if($vision_card['icon'] != null):?>
+                                        <img src="<?php echo esc_url($vision_card['icon']['url'])?>" alt="<?php echo esc_attr($vision_card['icon']['alt'])?>" class="bg-gray rounded-5 p-3">
+                                    <?php endif?>
+                                    <div class="vision_title_Wrap">
+                                        <h6 class="museo fw-bold fs-3"><?php echo esc_html_e($vision_card['title']) ?></h6>
+                                        <small class="text-secondary"><?php echo wp_kses_post($vision_card['content']) ?></small>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endif?>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+        <!-- core vlaues -->
+        <?php if($core_values != null):?>
+        <div class="core_values bg-success">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 mx-auto text-center mt-5">
+                        <div class="mission">
+                            <h1 class="museo dispaly-5 text-white fw-bold"><?php echo esc_html_e($core_values['core_title']) ?></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-3 row-gap-5 mt-5 pt-5">
+                    <?php if($core_values_imgs):?>
+                        <?php foreach ($core_values_imgs as $key => $core_values_img):?>          
+                            <div class="col-12 col-md-3">
+                                <div class="d-flex flex-column justify-content-center gap-3 align-items-center">
+                                    <?php if($core_values_img['core_card_image'] != null):?>
+                                        <img src="<?php echo esc_url($core_values_img['core_card_image']['url'])?>" alt="<?php echo esc_attr($core_values_img['core_card_image']['alt'])?>" class="bg-gray rounded-5 p-3">
+                                    <?php endif?>
+                                    <div class="vision_title_Wrap text-center">
+                                        <h6 class="museo fw-bold text-white fs-3"><?php echo esc_html_e($core_values_img['core_card_heading']) ?></h6>
+                                        <p class="text-secondary text-white mt-3"><?php echo esc_html_e($core_values_img['core_card_sub_heading']) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endif?>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+        <!-- quality standards -->
+        <?php if($quality_standard != null):?>
+        <div class="quality_standard">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h1 class="museo dispaly-5 fw-bold text-center text-md-start"><?php echo wp_kses_decode_entities(nl2br($quality_standard['title'])) ?></h1>
+                        <ul class="list-group list-group-flush mt-5">
+                        <?php if($quality_standard_lists != null): $count=0?>
+                        <?php foreach ($quality_standard_lists as $key => $quality_standard_list) : $count++?>          
+                            <li class="list-group-item bg-transparent mb-5 mb-md-4 pt-0 px-0 pb-4">
+                                <div class="d-flex flex-column flex-md-row justify-content-md-start align-items-center gap-3">
+                                    <span class="bg-success px-4 py-3 text-white fw-bold rounded-4"><?php echo $count < 10 ? '0' . $count : $count; ?></span>
+                                    <div>
+                                        <h5 class="fw-bold text-center text-md-start">
+                                           <?php echo esc_html_e($quality_standard_list['list_content']) ?>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php endforeach ?>
+                        <?php endif?>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="row">
+                        <?php if($quality_standard_imgs):?>
+                            <?php foreach ($quality_standard_imgs as $key => $quality_standard_img):?>
+                            <div class="col<?php echo $key === array_key_last($quality_standard_imgs) ? '-12 mt-4' : '' ?>">
+                                <img src="<?php echo esc_url($quality_standard_img['image']['url'])?>" alt="<?php echo esc_attr($quality_standard_img['image']['alt'])?>" class="img-fluid w-100 rounded-5 object-fit-cover">
+                            </div>
+                            <?php endforeach ?>
+                        <?php endif?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+       </section>
+    </main>
+
+
+
+<?php
+get_footer()?>
+
+
+
+
+
+===========================PAGE Header
+<?php
+/**
+ * Header menu
+ * @package herbanext
+ */
+
+use HERBANEXT_THEME\Inc\Menus;
+
+$menu_class = Menus::get_instance();
+$header_menu_id = $menu_class->get_menu_id('herbanext-header-menu');
+
+$header_menus = wp_get_nav_menu_items($header_menu_id);
+
+if(!empty($header_menus) && is_array($header_menus)){?>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase gap-3 gap-lg-0">
+        <?php 
+            foreach($header_menus as $menu_item){
+                if(!$menu_item->menu_item_parent){
+                    // get child menu
+                    $child_menu_items = $menu_class->get_child_menu_items($header_menus, $menu_item->ID);
+
+                    $has_children = !empty($child_menu_items) && is_array($child_menu_items);
+
+                    if(! $has_children){?>
+                        <li class="nav-item me-3">
+                            <a class="nav-link"
+                            href="<?php echo esc_url($menu_item->url);?>">
+                                <?php echo esc_html($menu_item->title);?>
+                            </a>
+                        </li>
+                    <?php
+                    }else{?>
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle" href="<?php echo esc_url($menu_item->url);?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo esc_html($menu_item->title);?><i class="bi bi-chevron-down ms-2"></i>
+                            </a>
+                            <ul class="dropdown-menu ">
+                                <?php 
+                                    foreach($child_menu_items as $child_menu_item){?>
+                                        <li><a class="dropdown-item" href="<?php echo esc_url($child_menu_item->url) ;?>"><?php echo esc_html($child_menu_item->title ) ?></a></li>
+                                   <?php }
+                                ?>
+                            </ul>
+                        </li>
+                   <?php }
+                }
+            }?>
+    </ul>
+<?php }?>
+
+
+
+
+=============================Footer
+<?php
+/**
+ * Header menu
+ * @package herbanext
+ */
+
+use HERBANEXT_THEME\Inc\Menus;
+
+$menu_class = Menus::get_instance();
+$header_menu_id = $menu_class->get_menu_id('herbanext-footer-menu');
+
+$header_menus = wp_get_nav_menu_items($header_menu_id);
+
+if(!empty($header_menus) && is_array($header_menus)){?>
+    <ul class="nav flex-column text-center text-md-start mx-auto ps-lg-5 ms-lg-5 text-black fw-bold">
+        <?php 
+            foreach($header_menus as $menu_item){
+                if(!$menu_item->menu_item_parent){
+                    // get child menu
+                    $child_menu_items = $menu_class->get_child_menu_items($header_menus, $menu_item->ID);
+
+                    $has_children = !empty($child_menu_items) && is_array($child_menu_items);
+
+                    if(! $has_children){?>
+                        <li class="nav-item mb-4">
+                            <a class="text-black fw-bold fs-6"
+                            href="<?php echo esc_url($menu_item->url);?>">
+                                <?php echo esc_html($menu_item->title);?>
+                            </a>
+                        </li>
+                    <?php
+                    }else{?>
+                        <li class="nav-item dropdown mb-4">
+                            <a class="nav-link dropdown-toggle" href="<?php echo esc_url($menu_item->url);?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo esc_html($menu_item->title);?><i class="bi bi-chevron-down ms-2"></i>
+                            </a>
+                            <ul class="dropdown-menu ">
+                                <?php 
+                                    foreach($child_menu_items as $child_menu_item){?>
+                                        <li><a class="dropdown-item" href="<?php echo esc_url($child_menu_item->url) ;?>"><?php echo esc_html($child_menu_item->title ) ?></a></li>
+                                   <?php }
+                                ?>
+                            </ul>
+                        </li>
+                   <?php }
+                }
+            }?>
+    </ul>
+<?php }?>.
+
+
+
+
+
+<?php
+$aria_label = !empty($args['label']) ? 'aria-label="' . esc_attr($args['label']) . '"' : '';
+$search_query = esc_attr(get_search_query());
+?>
+<form role="search" <?php echo $aria_label; ?> method="get" action="<?php echo esc_url(home_url('/')); ?>">
+<input type="hidden" name="post_type" value="any"> <!-- Set a default post type -->
+        <input type="search" class="form-control px-3 py-2" name="s" value="<?php echo $search_query; ?>" placeholder="Search here" required />
+</form>
+
+
+
+// add hidden field in search input field
+function custom_search_form($form) {
+    $post_types = array('careers', 'publications', 'trainingseminars', 'medicinal_herbs');
+    foreach ($post_types as $post_type) {
+        $form = str_replace('<input type="search"', '<input type="hidden" name="post_type[]" value="' . esc_attr($post_type) . '"><input type="search"', $form);
+    }
+    return $form;
+}
+add_filter('get_search_form', 'custom_search_form');
+
+
+
+
+<?php
+$aria_label = !empty($args['label']) ? 'aria-label="' . esc_attr($args['label']) . '"' : '';
+$search_query = esc_attr(get_search_query());
+?>
+<form role="search" <?php echo $aria_label; ?> method="get" action="<?php echo esc_url(home_url('/')); ?>">
+        <input type="hidden" name="post_type" value="careers">
+        <input type="hidden" name="post_type" value="publications">
+        <input type="hidden" name="post_type" value="trainingseminars">
+        <input type="hidden" name="post_type" value="medicinal_herbs">
+        <input type="hidden" name="post_type" value="any"> <!-- Set a default post type -->
+        <input type="search" class="form-control px-3 py-2" name="s" value="<?php echo $search_query; ?>" placeholder="Search here" required />
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+/**
+ * Template Name: Contact
+ * @package herbanext
+ */
+get_header();
+
+$contact_jumbotron = get_acf_field('contact_jumbotron_image');
+$contact_map    = get_acf_field('body_map');
+$contact_form   = get_acf_field('contact_form');
+?>
+
+<main>
+    <!-- jumbotron -->
+    <section id="jumbotron_product" class="w-100 position-relative">
+        <?php if( $contact_jumbotron):?>
+             <img src="<?php echo esc_url($contact_jumbotron['url']) ?>" alt="<?php echo esc_url($contact_jumbotron['alt']) ?>" class="object-fit-cover w-100 position-absolute bottom-0 left-0">
+        <?php endif ?>
+        <div class="container position-absolute">
+            <div class="col-12 col-md-8 col-lg-6 me-auto text-center text-md-start my-auto">
+                <?php
+                    if(is_page() && !is_front_page()):?>
+                        <h1 class="display-2 museo fw-bold text-success">
+                            <?php single_post_title() ?>
+                        </h1>
+                    <?php endif
+                ?>
+                <h6 class="mt-4">
+                    <nav aria-label="breadcrumb">
+                        <?php custom_breadcrumbs() ?>
+                    </nav>
+                </h6>
+            </div>
+        </div>
+    </section>
+    <?php if($contact_map):?>
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+                   <?php echo wp_kses_decode_entities($contact_map['map']) ?>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <?php echo wp_kses_decode_entities($contact_form) ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php endif ?>
+</main>
+<?php get_footer()?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+/**
+ * Template Name: Herbanext Product Development
+ * @package herbanext
+ */
+get_header();
+$prod_dev_alt_text = esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true));
+
+$acf_prod_dev_fields = array(
+    'jumb_prod_dev' => 'product_development_jumbotron',
+    'prod_dev_cont_1' => 'product_development_section_content_1',
+    'prod_dev_cont_2' => 'product_development_section_content_2',
+);
+$acf_prod_dev_values = array();
+
+foreach ($acf_prod_dev_fields as $key => $field_name) {
+    $acf_prod_dev_values[$key] = get_acf_field($field_name);
+}
+?>
+    <main>
+        <?php if (!empty($acf_prod_dev_values['jumb_prod_dev'])) : ?>
+        <section id="jumbotron_about" class="w-100 position-relative">
+            <?php if (!empty($acf_prod_dev_values['jumb_prod_dev']['image'])) : ?>
+                <img src="<?php echo esc_url($acf_prod_dev_values['jumb_prod_dev']['image']['url']) ?>" alt="<?php echo esc_attr($acf_prod_dev_values['jumb_prod_dev']['image']['alt']) ?>" class="object-fit-cover w-100 position-absolute bottom-0 left-0">
+            <?php else : ?>
+                <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php echo esc_attr($prod_dev_alt_text); ?>" class="object-fit-cover w-100 position-absolute top-0 left-0">
+            <?php endif ?>
+            <div class="container position-absolute">
+                <div class="col-12 col-md-8 col-lg-6 mx-auto text-center my-auto">
+                    <?php if (is_page() && !is_front_page()) : ?>
+                        <h1 class="display-2 museo fw-bold text-success">
+                            <?php single_post_title() ?>
+                        </h1>
+                    <?php endif ?>
+                    <h6 class="mt-4">
+                        <nav aria-label="breadcrumb">
+                            <?php custom_breadcrumbs() ?>
+                        </nav>
+                    </h6>
+                </div>
+            </div>
+        </section>
+        <?php endif?>
+
+       <section id="about">
+        <?php if(!empty($acf_prod_dev_values['prod_dev_cont_1']['content']) || !empty($acf_prod_dev_values['prod_dev_cont_1']['title'])):?>     
+        <!-- CONTENT 1 -->
+        <div class="who_are_are">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-5 mb-md-0 text-center text-md-start">
+                        <h1 class="display-3 museo fw-bold">
+                            <?php echo esc_html_e($acf_prod_dev_values['prod_dev_cont_1']['title']) ?>
+                        </h1>
+                        <p class="lh-lg text-secondary mt-5">
+                            <?php echo esc_textarea( $acf_prod_dev_values['prod_dev_cont_1']['content'] ) ?>
+                        </p>
+                       <a href="#qualContent" class="btn btn-success px-5 py-4 btn-lg mt-5"><?php echo wp_kses_decode_entities( $acf_prod_dev_values['prod_dev_cont_1']['button_label_with_icon'] ) ?></a>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                        <?php if (!empty($acf_prod_dev_values['prod_dev_cont_1']['images'])) : 
+                            foreach ($acf_prod_dev_values['prod_dev_cont_1']['images'] as $key =>  $image) : ?>
+                                <div class="col<?php echo $key === 0 ? '-12 mb-4' : '' ?>">
+                                    <img src="<?php echo esc_url($image['image']['url']); ?>" alt="<?php echo esc_attr($image['image']['alt']); ?>" class="img-fluid w-100 rounded-5 object-fit-cover">
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+
+       
+        <?php if(!empty( get_the_content())):?>
+         <!-- POST CONTENT  -->
+        <div class="innovative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="container">
+                            <div class="row">
+                                <div id="qual_content" class="overflow-x-scroll">
+                                    <?php get_template_part('template-parts/components/blog/services','content') ?>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+
+        <?php if(!empty($acf_prod_dev_values['prod_dev_cont_2']['title']) || !empty($acf_prod_dev_values['prod_dev_cont_2']['content'])) :?>
+        <!-- CONTENT 2 -->
+        <div class="quality_standard bg-gray" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+            <div class="container">
+                <div class="row g-lg-5">
+                    <div class="col-12 col-md-6" id="qualContent">
+                    <?php if(!empty($acf_prod_dev_values['prod_dev_cont_2']['title']) || !empty($acf_prod_dev_values['prod_dev_cont_2']['content'])) :?>
+                       <div class="qual_wrapper mb-5">
+                            <h1 class="museo dispaly-5 fw-bold text-center text-md-start mb-5"><?php echo wp_kses_decode_entities($acf_prod_dev_values['prod_dev_cont_2']['title']) ?></h1>
+                            <p class="lh-lg text-secondary"><?php echo nl2br(esc_textarea($acf_prod_dev_values['prod_dev_cont_2']['content'])) ?></p>
+                       </div>
+                    <?php endif?>
+                    <?php echo wp_kses_decode_entities( $acf_prod_dev_values['prod_dev_cont_2']['content_form'] ) ?>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="row">
+                            <?php if($acf_prod_dev_values['prod_dev_cont_2']['content_3_images']) :?>
+                                <?php foreach($acf_prod_dev_values['prod_dev_cont_2']['content_3_images'] as $key => $labcontImages) :?>
+                                <div class="col<?php echo $key === array_key_last($acf_prod_dev_values['prod_dev_cont_2']['content_3_images']) ? '-12' : ' mb-4' ?>">
+                                    <img src="<?php echo esc_url($labcontImages['image']['url'])?>" alt="<?php echo esc_attr($labcontImages['image']['alt'])?>" class="img-fluid rounded-5">
+                                </div>
+                                <?php endforeach?>
+                            <?php endif?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif?>
+       </section>
+    </main>
+<?php get_footer() ?>
+
+
+
+
+
+<?php if(!empty( get_the_content())):?>
+         <!-- POST CONTENT  -->
+        <section id="about">
+            <div class="page_post">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="qual_content">
+                                        <?php get_template_part('template-parts/components/blog/services','content') ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif?>
+
+
+
+
+    ================= CONTENT 5 IN TOLL PAGE ====
+
+            <!-- CONTENT 5 -->
+        <?php if($cont_sec_5['content']) :?>
+        <div class="quality_standard bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h1 class="museo dispaly-5 fw-bold text-center text-md-start"><?php echo esc_html_e($cont_sec_5['content_title']) ?></h1>
+                        <p class="lh-lg mt-5"><?php echo nl2br(esc_textarea( $cont_sec_5['content'] )) ?></p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="row">
+                            <?php if($cont_imgs_5): ?>
+                                <?php foreach ($cont_imgs_5 as $key => $cont_img_5):?>
+                                <div class="col<?php echo $key === array_key_last($cont_imgs_5) ? '-12' : ' mb-4' ?>">
+                                    <img src="<?php echo esc_url($cont_img_5['image']['url'])?>" alt="<?php echo esc_attr($cont_img_5['image']['alt'])?>" class="img-fluid w-100 rounded-5 object-fit-cover">
+                                </div>
+                                <?php endforeach ?>
+                            <?php endif?>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif ?>
+
+
+
+
+
+            // function namespace_add_custom_types($query) {
+    //     if ($query->is_main_query() && (is_category() || is_tag())) {
+    //         $post_types = ['post', 'careers', 'publications', 'trainingseminars','medicinal_herbs'];
+    //         $query->set('post_type', $post_types);
+    //     }
+    // }
+    function reset_custom_types($query) {
+        if ($query->is_main_query() && (is_category() || is_tag())) {
+            $query->set('post_type', 'post');
+        }
+    }
+    
+
+
+    // add_action('pre_get_posts', 'custom_post_type_search');
+// function custom_post_type_search($query) {
+//     if ($query->is_search && !is_admin()) {
+//         $query->set('post_type', array('post', 'careers', 'publications', 'trainingseminars', 'medicinal_herbs'));
+//     }
+// }
+
+// function tg_include_custom_post_types_in_search_results( $query ) {
+//     if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
+//         $query->set( 'post_type', array( 'post', 'careers', 'publications', 'trainingseminars', 'medicinalherbs' ) );
+//     }
+// }
+// add_action( 'pre_get_posts', 'tg_include_custom_post_types_in_search_results' );
+
+
+
+<?php
+$aria_label = ! empty( $args['label'] ) ? 'aria-label="' . esc_attr( $args['label'] ) . '"' : '';
+?>
+<form role="search" <?php echo $aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?> method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+<div class="input-group">
+    <input type="hidden" name="post_type" value="any">
+    <input type="search" class="form-control py-4" name="s" value="<?php echo get_search_query(); ?>" placeholder="Search here" required />
+    <div class="input-group-append">
+        <button class="btn btn-secondary px-3" type="submit">
+            <span class="icon-search"></span>
+        </button>
+     </div>
+</div>
+</form>
+
+
+
+========HEADER preloader
+  <div id="preloader">
+        <div class="loading-container">
+            <img src="<?php echo esc_url($get_prload_img['preloader_icon']['url']) ?>" alt="<?php echo esc_attr($get_prload_img['preloader_icon']['alt']) ?>" class="d-block mx-auto" width="<?php echo esc_attr($get_prload_img['icon_width']) ?>" height="<?php echo esc_attr($get_prload_img['icon_height']) ?>">
+            <div class="loading-text fs-5">
+            </div>
+          </div>
+    </div>
+
+
+
+    =====footer
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================SEARCH PAGE=======================================
+    <?php
+/**
+ * @package herbanext
+ */
+get_header();
+
+
+$get_blog_img = get_acf_option_field('blog_post_header_image');
+$get_blog_title = get_acf_option_field('blog_post_heading_title');
+
+// $s=get_search_query();
+// $args = array(
+//                 's' =>$s
+//             );
+// $the_query = new WP_Query( $args );
+// ?>
+<main>
+ <!-- jumbotron -->
+ <section id="jumbotron_product" class="w-100 position-relative">
+    <img src="<?php echo esc_url($get_blog_img) ?>" alt="<?php echo esc_attr($get_blog_title) ?>" class="object-fit-cover w-100 position-absolute top-0 left-0">
+     <div class="container position-absolute">
+         <div class="col-12 col-md-8 col-lg-6 me-auto text-center text-md-start my-auto">
+                <h1 class="display-2 museo fw-bold text-success">
+                    <?php echo esc_html_e('Search Result') ?>
+                </h1>
+                <h6 class="mt-4">
+                    <nav aria-label="breadcrumb">
+                        <?php custom_breadcrumbs() ?>
+                    </nav>
+                </h6>
+         </div>
+     </div>
+ </section>  
+ <section id="blog">
+     <div class="container">
+         <div class="row row-gap-5">
+             <?php if(have_posts()): while(have_posts()): the_post()?>
+                     <?php get_template_part('template-parts/content/content')?> 
+                <?php endwhile; else:?>
+                    <?php get_template_part('template-parts/content/content-empty')?>
+            <?php endif;wp_reset_postdata();?>
+         </div> 
+        <?php if(get_next_posts_link() || get_previous_posts_link() ) :?>
+         <div class="row">
+            <div class="container text-center">
+                <nav aria-label="Page navigation" class="mt-5 pt-4">
+                    <ul class="pagination justify-content-center">
+                        <?php if (get_previous_posts_link()) : ?>
+                            <li class="page-item">
+                                <span class="btn btn-success px-5 py-3">
+                                    <?php previous_posts_link('<i class="bi bi-arrow-left me-3"></i>Previous'); ?>
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (get_next_posts_link()) : ?>
+                            <li class="page-item">
+                                <span class="btn btn-success px-5 py-3">
+                                    <?php next_posts_link('Next<i class="bi bi-arrow-right ms-3"></i>'); ?>
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </nav>
+            </div>
+         </div>
+        <?php endif?>
+     </div>
+ </section>
+</main>
+
+<?php get_footer()?>
+
+
+
+
+
+
+
+
+==============================CPT TEMPLATE SINGLETON====================================
+
+filename: class-CptTemplate.php
+
+<?php 
+/**
+ * @package herbanext
+ */
+
+ namespace HERBANEXT_THEME\Inc;
+
+use HERBANEXT_THEME\Inc\Traits\Singleton;
+
+class CustomPostTypeArchiveTemplate {
+    use Singleton;
+
+    protected function __construct() {
+        // Add filter to select custom post type archive templates
+        // add_filter('template_include', [$this, 'locate_custom_post_type_archive_template'], 99);
+    }
+
+    // public function locate_custom_post_type_archive_template($template) {
+    //     $custom_post_types = ['careers', 'publications', 'trainingseminars','medicinal_herbs'];
+
+    //     foreach ($custom_post_types as $post_type) {
+    //         if (is_post_type_archive($post_type)) {
+    //             $new_template = locate_template(['archive-' . $post_type . '.php']);
+    //             if ('' != $new_template) {
+    //                 return $new_template;
+    //             }
+    //         }
+    //     }
+    //     return $template;
+    // }
+}
+
+
